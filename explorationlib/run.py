@@ -1,6 +1,7 @@
 import numpy as np
 import cloudpickle
 
+from copy import deepcopy
 from collections import defaultdict
 
 from explorationlib.util import save
@@ -14,6 +15,7 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
 
     # Create a log
     log = defaultdict(list)
+    log["agent_history"] = defaultdict(list)
 
     # Seed
     agent.seed(seed)
@@ -23,38 +25,44 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
     for k in range(num_repeats):
         # Reset
         agent.reset()
-        state, reward, done, _ = env.reset()
+        env.reset()
+        state, reward, done, info = env.last()
 
         # Log start
         log["step"].append(0)
         log["repeat"].append(k)
         log["state"].append(state)
-        log["action"].append(None)
+        log["action"].append(np.zeros_like(state))
         log["reward"].append(reward)
         log["info"].append(info)
 
         # Run episode, for at most num_steps
-        for n in range(1, num_steps + 1):
+        for n in range(1, num_steps):
             # Step
             action = agent(state)
             env.step(action)
             state, reward, done, info = env.last()
 
-            # Log step
+            # Log step env
             log["step"].append(n)
             log["repeat"].append(k)
-            log["state"].append(state)
-            log["action"].append(action)
+            log["state"].append(state.copy())
+            log["action"].append(action.copy())
             log["reward"].append(reward)
             log["info"].append(info)
 
             if done:
                 break
 
-    # Save the results
-    log["env"] = env
-    log["agent"] = agent
-    save(name, log)
+        # Log full agent history
+        for k in agent.history.keys():
+            log["agent_history"][k].extend(deepcopy(agent.history[k]))
+
+    # Save agent and env
+    log["env"] = env.reset()
+    log["agent"] = agent.reset()
+
+    save(log, filename=name)
 
 
 def multi_experiment(name, agents, env, num_episodes=1, seed=None):

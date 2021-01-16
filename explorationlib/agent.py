@@ -33,7 +33,26 @@ class Agent2d:
         self.history = defaultdict(list)
 
 
+class Uniform2d(Agent2d):
+    """Uniform (maxent) search"""
+    def __init__(self, scale=1):
+        super().__init__()
+        self.scale = scale
+
+    def forward(self, state):
+        angle = self._angle(state)
+        l = self.np_random.uniform(0, self.scale)
+        action = self._convert(angle, l)
+
+        self.history["angle"].append(angle)
+        self.history["l"].append(l)
+        self.history["action"].append(action)
+
+        return action
+
+
 class Diffusion2d(Agent2d):
+    """Diffusion search"""
     def __init__(self, scale=1):
         super().__init__()
         self.scale = scale
@@ -51,6 +70,7 @@ class Diffusion2d(Agent2d):
 
 
 class Levy2d(Agent2d):
+    """Levy search"""
     def __init__(self, exponent=2):
         super().__init__()
         self.exponent = exponent

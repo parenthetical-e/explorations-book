@@ -153,12 +153,12 @@ def levy_values(targets, exponent=2.0, prng=None):
 # TODO - Add early stopping for non-ballistic behave
 class Field(gym.Env):
     """An open-field to explore, with no boundries."""
-    def __init__(self, detection_radius=1):
+    def __init__(self):
         self.info = {}
         self.reward = 0
         self.done = False
 
-        self.detection_radius = detection_radius
+        self.detection_radius = None
         self.targets = None
         self.values = None
 
@@ -173,13 +173,15 @@ class Field(gym.Env):
         """
         return (self.state, self.reward, self.done, self.info)
 
-    def add_targets(self, targets, values):
+    def add_targets(self, targets, values, detection_radius=1):
         """Add targets and their values"""
 
         if len(targets) != len(values):
             raise ValueError("targets and values must match.")
+
         self.targets = targets
         self.values = values
+        self.detection_radius = detection_radius
 
     def check_targets(self):
         """Check for targets, and update self.reward if

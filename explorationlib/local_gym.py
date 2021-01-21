@@ -153,12 +153,12 @@ def levy_values(targets, exponent=2.0, prng=None):
 # TODO - Add early stopping for non-ballistic behave
 class Field(gym.Env):
     """An open-field to explore, with no boundries."""
-    def __init__(self, radius=1):
+    def __init__(self, detection_radius=1):
         self.info = {}
         self.reward = 0
         self.done = False
 
-        self.radius = radius
+        self.detection_radius = detection_radius
         self.targets = None
         self.values = None
 
@@ -183,7 +183,7 @@ class Field(gym.Env):
 
     def check_targets(self):
         """Check for targets, and update self.reward if
-        some are found in the given radius.
+        some are found in the given detection_radius.
 
         Note: the deault d_func is the euclidian distance. 
         To override provide a func(x, y) -> distance.
@@ -199,7 +199,7 @@ class Field(gym.Env):
         reward = 0
         for i, l in enumerate(self.targets):
             distance = d_func(l, self.state)
-            if distance <= self.radius:
+            if distance <= self.detection_radius:
                 reward += self.values[i]
 
         # Set reward

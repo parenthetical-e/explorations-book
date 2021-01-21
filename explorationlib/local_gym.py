@@ -1,12 +1,13 @@
 #! /usr/bin/env python
 import numpy as np
-import gym
 
 from copy import deepcopy
-from gym import spaces
-from gym.utils import seeding
 from itertools import cycle
 from collections import defaultdict
+
+import gym
+from gym import spaces
+from gym.utils import seeding
 
 from explorationlib.agent import Levy2d
 
@@ -25,7 +26,7 @@ def uniform_targets(N, shape, prng=None):
 
     targets = []
     for s in shape:
-        locs = prng.uniform(0, s, size=N)
+        locs = prng.uniform(-s, s, size=N)
         targets.append(deepcopy(locs))
 
     # Reorg into a list of location arrays
@@ -152,11 +153,12 @@ def levy_values(targets, exponent=2.0, prng=None):
 # TODO - Add early stopping for non-ballistic behave
 class Field(gym.Env):
     """An open-field to explore, with no boundries."""
-    def __init__(self):
+    def __init__(self, radius=1):
         self.info = {}
         self.reward = 0
         self.done = False
 
+        self.radius = radius
         self.targets = None
         self.values = None
 
@@ -164,6 +166,7 @@ class Field(gym.Env):
 
     def step(self, action):
         self.state += action
+        self.check_targets()
 
     def last(self):
         """Return the last transition: (state, reward, done, info)
@@ -178,22 +181,25 @@ class Field(gym.Env):
         self.targets = targets
         self.values = values
 
-    def check_targets(self, radius, d_func=None):
+    def check_targets(self):
         """Check for targets, and update self.reward if
         some are found in the given radius.
 
         Note: the deault d_func is the euclidian distance. 
         To override provide a func(x, y) -> distance.
         """
+        # Short circuit if no targets
+        if self.targets is None:
+            return None
 
-        if d_func is None:
-            d_func = lambda x, y: np.sqrt(np.sum(np.power(y - x, 2)))
+        # The space is:
+        d_func = lambda x, y: np.sqrt(np.sum(np.power(y - x, 2)))
 
         # Check for targets, build up 'reward' value
         reward = 0
         for i, l in enumerate(self.targets):
             distance = d_func(l, self.state)
-            if distance <= radius:
+            if distance <= self.radius:
                 reward += self.values[i]
 
         # Set reward
@@ -223,6 +229,7 @@ class Grid(Field):
             raise ValueError("action must contain int")
 
         super().step(action)
+        super().check_targets()
 
     def reset(self):
         self.state = np.zeros(2, dtype=int)
@@ -263,3 +270,5 @@ class Bounded(Field):
                     raise NotImplementedError("[TODO]")
                 else:
                     raise ValueError("Invalid mode")
+        # ...
+        super().check_targets()

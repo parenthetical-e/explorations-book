@@ -9,14 +9,24 @@ def plot_experiment(name):
     pass
 
 
-def plot_targets(env,
-                 figsize=(3, 3),
-                 boundary=(1, 1),
-                 color="black",
-                 alpha=1.0,
-                 label=None,
-                 title=None,
-                 ax=None):
+def replay2d(exp_data, repeat=0):
+    # Make a gif of a search
+    # State
+    # targets
+    # agent
+    # radius? or other sense horizon?
+
+    pass
+
+
+def plot_targets2d(env,
+                   figsize=(3, 3),
+                   boundary=(1, 1),
+                   color="black",
+                   alpha=1.0,
+                   label=None,
+                   title=None,
+                   ax=None):
 
     vec = np.vstack(env.targets)
 

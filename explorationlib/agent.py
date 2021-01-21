@@ -1,5 +1,6 @@
 import numpy as np
 
+from copy import deepcopy
 from scipy.stats import powerlaw
 from collections import defaultdict
 
@@ -30,6 +31,7 @@ class Agent2d:
         return self.forward(state)
 
     def reset(self):
+        self.agent_step = 0
         self.history = defaultdict(list)
 
 
@@ -44,9 +46,11 @@ class Uniform2d(Agent2d):
         l = self.np_random.uniform(0, self.scale)
         action = self._convert(angle, l)
 
-        self.history["angle"].append(angle)
-        self.history["l"].append(l)
-        self.history["action"].append(action)
+        self.agent_step += 1
+        self.history["agent_step"].append(deepcopy(self.agent_step))
+        self.history["agent_angle"].append(angle)
+        self.history["agent_l"].append(l)
+        self.history["agent_action"].append(action)
 
         return action
 
@@ -62,9 +66,11 @@ class Diffusion2d(Agent2d):
         l = self.np_random.exponential(self.scale)
         action = self._convert(angle, l)
 
-        self.history["angle"].append(angle)
-        self.history["l"].append(l)
-        self.history["action"].append(action)
+        self.agent_step += 1
+        self.history["agent_step"].append(deepcopy(self.agent_step))
+        self.history["agent_angle"].append(angle)
+        self.history["agent_l"].append(l)
+        self.history["agent_action"].append(action)
 
         return action
 
@@ -80,8 +86,10 @@ class Levy2d(Agent2d):
         l = np.power(self.np_random.uniform(), (-1 / self.exponent))
         action = self._convert(angle, l)
 
-        self.history["angle"].append(angle)
-        self.history["l"].append(l)
-        self.history["action"].append(action)
+        self.agent_step += 1
+        self.history["agent_step"].append(deepcopy(self.agent_step))
+        self.history["agent_angle"].append(angle)
+        self.history["agent_l"].append(l)
+        self.history["agent_action"].append(action)
 
         return action

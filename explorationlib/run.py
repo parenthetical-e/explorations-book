@@ -15,7 +15,6 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
 
     # Create a log
     log = defaultdict(list)
-    log["agent_history"] = defaultdict(list)
 
     # Seed
     agent.seed(seed)
@@ -56,7 +55,7 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
 
         # Log full agent history
         for k in agent.history.keys():
-            log["agent_history"][k].extend(deepcopy(agent.history[k]))
+            log[k].extend(deepcopy(agent.history[k]))
 
     # Save agent and env
     log["env"] = env.reset()

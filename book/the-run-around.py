@@ -2,9 +2,9 @@
 # %% [markdown]
 # Walk around/run around/fly around
 #
-# In this chapter we dill discuss the simplest method of exploration -- random searching. In some circumstance's we'll see random exploration is the best we can do, leading to some optimality claims. We decsribe what is optimal when, and review how animals actually behave. Examples both inline with, and contrary to, what the math says is best. 
+# In this chapter we dill discuss the simplest method of exploration -- random searching. In some circumstance's we'll see random exploration is the best we can do, leading to some optimality claims. We decsribe what is optimal when, and review how animals actually behave. Examples both inline with, and contrary to, what the math says is best.
 #
-# # Diffusion, Lévy flights, and patches. 
+# # Diffusion, Lévy flights, and patches.
 # %%
 from explorationlib.run import experiment
 from explorationlib import gym
@@ -22,11 +22,11 @@ import matplotlib.pyplot as plt
 # %%
 env = gym.Field()
 brown = agent.Diffusion2d(scale=1 / 2)
-levy = agent.Levy2d(exponent=2)
+levy = agent.Levy2d(exponent=3)
 
 # %%
-experiment("levy.pkl", levy, env, num_steps=100, num_repeats=1)
-experiment("brown.pkl", brown, env, num_steps=100, num_repeats=1)
+experiment("levy.pkl", levy, env, num_steps=100, num_experiments=1)
+experiment("brown.pkl", brown, env, num_steps=100, num_experiments=1)
 
 levy_exp = load("levy.pkl")
 brown_exp = load("brown.pkl")
@@ -61,15 +61,9 @@ plt.figure(figsize=(10, 4))
 plt.subplot(121)
 plt.title("Levy")
 _ = plt.hist(levy_l, color="black")
-# plt.gca().set_xscale("log")
 
 plt.subplot(122)
 plt.title("Brownian")
 _ = plt.hist(brown_l, color="black")
-# plt.gca().set_xscale("log")
-
-# %%
-
-# %%
 
 # %%

@@ -38,7 +38,6 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
 
         # Run episode, for at most num_steps
         for n in range(1, num_steps):
-            print(n)
             # Step
             action = agent(state)
             env.step(action)

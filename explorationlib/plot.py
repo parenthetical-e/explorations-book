@@ -58,7 +58,7 @@ def plot_targets2d(env,
     if title is not None:
         ax.set_title(title)
     if label is not None:
-        ax.legend()
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     return ax
 
@@ -91,7 +91,7 @@ def plot_position2d(exp_data,
     if title is not None:
         ax.set_title(title)
     if label is not None:
-        ax.legend()
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     return ax
 
@@ -123,7 +123,7 @@ def plot_length(exp_data,
     if title is not None:
         ax.set_title(title)
     if label is not None:
-        ax.legend()
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     return ax
 
@@ -161,6 +161,6 @@ def plot_length_hist(exp_data,
     if title is not None:
         ax.set_title(title)
     if label is not None:
-        ax.legend()
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     return ax

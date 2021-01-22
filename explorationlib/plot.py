@@ -9,7 +9,7 @@ def plot_experiment(name):
     pass
 
 
-def replay2d(exp_data, repeat=0):
+def replay2d(name, exp_data, repeat=0):
     # Make a gif of a search
     # State
     # targets
@@ -24,10 +24,16 @@ def plot_targets2d(env,
                    boundary=(1, 1),
                    color="black",
                    alpha=1.0,
+                   markersize=1,
                    label=None,
                    title=None,
                    ax=None):
 
+    # No targets no plot
+    if env.targets is None:
+        return None
+
+    # Fmt
     vec = np.vstack(env.targets)
 
     # Create a fig obj?
@@ -36,7 +42,13 @@ def plot_targets2d(env,
         ax = fig.add_subplot(111)
 
     # !
-    ax.scatter(vec[:, 0], vec[:, 1], color=color, label=label, alpha=alpha)
+    ax.scatter(
+        vec[:, 0],
+        vec[:, 1],
+        env.values,  # value is size, literal
+        color=color,
+        label=label,
+        alpha=alpha)
     ax.set_xlim(-boundary[0], boundary[0])
     ax.set_ylim(-boundary[1], boundary[1])
     ax.set_xlabel("x")
@@ -84,20 +96,52 @@ def plot_position2d(exp_data,
     return ax
 
 
-def plot_hist(exp_data,
-              loglog=True,
-              var_name="agent_l",
-              bins=20,
-              figsize=(3, 3),
-              color="black",
-              alpha=1.0,
-              density=False,
-              label=None,
-              title=None,
-              ax=None):
+def plot_length(exp_data,
+                length_name="agent_l",
+                step_name="agent_step",
+                figsize=(4, 2),
+                color="black",
+                alpha=1.0,
+                label=None,
+                title=None,
+                ax=None):
+    # fmt
+    l = np.asarray(exp_data[length_name])
+    step = np.asarray(exp_data[step_name])
+
+    # Create a fig obj?
+    if ax is None:
+        fig = plt.figure(figsize=figsize)
+        ax = fig.add_subplot(111)
+
+    # !
+    ax.plot(step, l, color=color, label=label, alpha=alpha)
+    ax.set_xlabel("Time")
+    ax.set_ylabel("Length")
+
+    # Labels, legends, titles?
+    if title is not None:
+        ax.set_title(title)
+    if label is not None:
+        ax.legend()
+
+    return ax
+
+
+def plot_length_hist(exp_data,
+                     loglog=True,
+                     length_name="agent_l",
+                     bins=20,
+                     figsize=(3, 3),
+                     color="black",
+                     alpha=1.0,
+                     density=False,
+                     label=None,
+                     title=None,
+                     ax=None):
 
     # fmt
-    x = np.asarray(exp_data[var_name])
+    x = np.asarray(exp_data[length_name])
 
     # Create a fig obj?
     if ax is None:

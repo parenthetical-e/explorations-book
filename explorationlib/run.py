@@ -7,7 +7,7 @@ from collections import defaultdict
 from explorationlib.util import save
 
 
-def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
+def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
     """Run an experiment. 
     
     Note: the experiment log gets saved to 'name'. 
@@ -21,7 +21,8 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
     env.seed(seed)
 
     # !
-    for k in range(num_repeats):
+    for k in range(num_experiments):
+        # print(k)
         # Reset
         agent.reset()
         env.reset()
@@ -29,7 +30,7 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
 
         # Log start
         log["step"].append(0)
-        log["repeat"].append(k)
+        log["experiment"].append(k)
         log["state"].append(state)
         log["action"].append(np.zeros_like(state))
         log["reward"].append(reward)
@@ -37,6 +38,7 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
 
         # Run episode, for at most num_steps
         for n in range(1, num_steps):
+            print(n)
             # Step
             action = agent(state)
             env.step(action)
@@ -44,7 +46,7 @@ def experiment(name, agent, env, num_steps=1, num_repeats=1, seed=None):
 
             # Log step env
             log["step"].append(n)
-            log["repeat"].append(k)
+            log["experiment"].append(k)
             log["state"].append(state.copy())
             log["action"].append(action.copy())
             log["reward"].append(reward)

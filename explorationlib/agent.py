@@ -77,14 +77,15 @@ class Diffusion2d(Agent2d):
 
 class Levy2d(Agent2d):
     """Levy search"""
-    def __init__(self, exponent=2):
+    def __init__(self, exponent=2, norm=1):
         super().__init__()
         self.exponent = exponent
+        self.norm = norm
 
     def forward(self, state):
         angle = self._angle(state)
         l = np.power(self.np_random.uniform(), (-1 / self.exponent))
-        action = self._convert(angle, l)
+        action = self._convert(angle, l * self.norm)
 
         self.agent_step += 1
         self.history["agent_step"].append(deepcopy(self.agent_step))

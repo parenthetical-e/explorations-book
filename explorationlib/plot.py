@@ -153,7 +153,12 @@ def plot_length_hist(exp_data,
         ax.set_xscale('log')
         ax.set_yscale('log')
 
-    ax.hist(x, bins=bins, color=color, alpha=alpha, density=density)
+    ax.hist(x,
+            bins=bins,
+            color=color,
+            alpha=alpha,
+            density=density,
+            label=label)
     ax.set_xlabel("Length")
     ax.set_ylabel("Count")
 

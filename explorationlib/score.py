@@ -24,10 +24,12 @@ def average_reward(exp_data, target_name="reward"):
 
 
 def search_efficient(exp_data, length_name="agent_l", target_name="reward"):
-    """Search efficiency"""
-    # mean_l = np.mean(exp_data[length_name])
-    # N = np.sum(exp_data[target_name])
-    # return 1 / (mean_l * N)
+    """Search efficiency - total N / total l
+
+    Citation
+    --------
+    Viswanathan, G. M. et al. Optimizing the success of random searches. Nature 401, 911–914 (1999).
+    """
 
     # Fmt
     rewards = exp_data[target_name]
@@ -38,30 +40,18 @@ def search_efficient(exp_data, length_name="agent_l", target_name="reward"):
         return 0.0
 
     total_l = 0
-    total_step = 0
     total_N = 0
-    ls = []
     for r, l in zip(rewards, lengths):
         # Not a target!
         if np.isclose(r, 0.0):
-            # log: l and steps
             total_l += l
-            total_step += 1
         # Target!
         else:
             # log l and steps
             total_l += l
-            total_step += 1
-
-            # Target!
             total_N += 1
-            ls.append(total_l / total_step)
 
-            # Reset
-            total_step = 1
-            total_l = 0
-
-    return 1 / (np.mean(ls) * total_N)
+    return total_N / total_l
 
 
 def turn_ratio(exp_data, length_name="agent_l", angle_name="agent_angle"):

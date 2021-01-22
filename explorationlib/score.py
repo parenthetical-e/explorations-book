@@ -47,7 +47,6 @@ def search_efficient(exp_data, length_name="agent_l", target_name="reward"):
             total_l += l
         # Target!
         else:
-            # log l and steps
             total_l += l
             total_N += 1
 

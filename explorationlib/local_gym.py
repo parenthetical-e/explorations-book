@@ -194,13 +194,10 @@ class Field(gym.Env):
         if self.targets is None:
             return None
 
-        # The space is:
-        d_func = lambda x, y: np.sqrt(np.sum(np.power(y - x, 2)))
-
         # Check for targets, build up 'reward' value
         reward = 0
-        for i, l in enumerate(self.targets):
-            distance = d_func(l, self.state)
+        for i, t in enumerate(self.targets):
+            distance = np.sqrt(np.sum(np.power(t - self.state, 2)))
             if distance <= self.detection_radius:
                 reward += self.values[i]
 

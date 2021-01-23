@@ -83,10 +83,38 @@ class Levy2d(Agent2d):
         self.norm = norm
 
     def forward(self, state):
+        # Sample move
         angle = self._angle(state)
         l = np.power(self.np_random.uniform(), (-1 / self.exponent))
         action = self._convert(angle, l * self.norm)
+        # Log
+        self.agent_step += 1
+        self.history["agent_step"].append(deepcopy(self.agent_step))
+        self.history["agent_angle"].append(angle)
+        self.history["agent_l"].append(l)
+        self.history["agent_action"].append(action)
 
+        return action
+
+
+class TruncatedLevy2d(Agent2d):
+    """Levy search, with a max l"""
+    def __init__(self, exponent=2, norm=1, max_l=10):
+        super().__init__()
+        self.exponent = exponent
+        self.norm = norm
+        self.max_l = max_l
+
+    def forward(self, state):
+        # Sample move
+        angle = self._angle(state)
+        l = np.power(self.np_random.uniform(), (-1 / self.exponent))
+        # Truncate?
+        if l > self.max_l:
+            l = self.max_l
+        # Convert
+        action = self._convert(angle, l * self.norm)
+        # Log
         self.agent_step += 1
         self.history["agent_step"].append(deepcopy(self.agent_step))
         self.history["agent_angle"].append(angle)

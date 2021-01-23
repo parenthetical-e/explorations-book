@@ -238,6 +238,10 @@ class Grid(Field):
 class Bounded(Field):
     """An open-field to explore, with boundries."""
     def __init__(self, shape, mode="stopping"):
+        # Init the field
+        super().__init__()
+
+        # New attrs
         self.shape = shape
         self.mode = mode
 
@@ -259,11 +263,11 @@ class Bounded(Field):
         # check bounds. clipping and stopping
         # in a mode dependent way
         for i, s in enumerate(self.state):
-            if s > self.shape[i]:
+            if np.abs(s) > self.shape[i]:
                 if self.mode == "stopping":
-                    self.state[i] = self.shape[i]
+                    self.state[i] = np.sign(s) * self.shape[i]
                 elif self.mode == "absorbing":
-                    self.state[i] = self.shape[i]
+                    self.state[i] = np.sign(s) * self.shape[i]
                     self.done = True
                 elif self.mode == "periodic":
                     raise NotImplementedError("[TODO]")

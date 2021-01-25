@@ -52,14 +52,7 @@ class Uniform2d(Agent2d):
         self.max_l = max_l
 
         self.detection_radius = detection_radius
-
-        self.l = 0
-        self.delta = 0
-        self.num_turn = 0
-
-        self.step = 0
-        self.num_step = 0
-        self.angle = 0
+        self.reset()
 
     def _l(self, state):
         """Sample length"""
@@ -127,13 +120,7 @@ class Levy2d(Agent2d):
         self.exponent = exponent
         self.detection_radius = detection_radius
 
-        self.num_turn = 0
-        self.l = 0
-        self.angle = 0
-
-        self.num_step = 0
-        self.delta = 0
-        self.step = 0
+        self.reset()
 
     def _l(self, state):
         """Sample length"""
@@ -208,13 +195,7 @@ class TruncatedLevy2d(Agent2d):
         self.exponent = exponent
         self.detection_radius = detection_radius
 
-        self.num_turn = 0
-        self.l = 0
-        self.angle = 0
-
-        self.num_step = 0
-        self.delta = 0
-        self.step = 0
+        self.reset()
 
     def _l(self, state):
         """Sample length"""
@@ -284,13 +265,7 @@ class Diffusion2d(Agent2d):
         self.scale = scale
         self.detection_radius = detection_radius
 
-        self.num_turn = 0
-        self.l = 0
-        self.angle = 0
-
-        self.num_step = 0
-        self.delta = 0
-        self.step = 0
+        self.reset()
 
     def _l(self, state):
         """Sample length"""

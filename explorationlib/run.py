@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import cloudpickle
 
@@ -5,6 +6,7 @@ from copy import deepcopy
 from collections import defaultdict
 
 from explorationlib.util import save
+from tqdm.autonotebook import tqdm
 
 
 def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
@@ -15,13 +17,15 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
 
     # Create a log
     log = defaultdict(list)
+    base = os.path.basename(name)
+    base = os.path.splitext(base)[0]
 
     # Seed
     agent.seed(seed)
     env.seed(seed)
 
     # !
-    for k in range(num_experiments):
+    for k in tqdm(range(num_experiments), desc=base):
         # Reset
         agent.reset()
         env.reset()
@@ -61,6 +65,7 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
             log[k].extend(deepcopy(agent.history[k]))
 
     # Save agent and env
+    log["name"] = base
     log["env"] = env.reset()
     log["agent"] = agent.reset()
 

@@ -117,7 +117,7 @@ def plot_length(exp_data,
                 ax=None):
     # fmt
     length_name = "agent_l"
-    step_name = "agent_step"
+    step_name = "agent_num_turn"
     l = np.asarray(exp_data[length_name])
     step = np.asarray(exp_data[step_name])
 
@@ -128,7 +128,7 @@ def plot_length(exp_data,
 
     # !
     ax.plot(step, l, color=color, label=label, alpha=alpha)
-    ax.set_xlabel("Time")
+    ax.set_xlabel("Turn")
     ax.set_ylabel("Length")
 
     # Labels, legends, titles?

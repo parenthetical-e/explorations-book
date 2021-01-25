@@ -12,16 +12,19 @@ class Agent2d:
         self.history = defaultdict(list)
 
     def seed(self, seed=None):
+        """Init RandomState"""
         self.np_random = np.random.RandomState(seed)
         return [seed]
 
     def _angle(self, state):
+        """Sample angle"""
         return self.np_random.uniform(0, 2 * np.pi)
 
     def _l(self, state):
         return NotImplementedError("Stub.")
 
     def _convert(self, angle, l):
+        """Convert from (angle, l) to (x, y)"""
         dx = l * np.cos(angle)
         dy = l * np.sin(angle)
         action = np.array([dx, dy])

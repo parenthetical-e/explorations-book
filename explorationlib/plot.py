@@ -3,14 +3,26 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from explorationlib.util import load
+from explorationlib.util import select_exp
 
 
 def plot_experiment(name):
     pass
 
 
-def replay2d(name, exp_data, repeat=0):
+def replay2d(name, env, exp_data, experiment=0, detection_radius=1):
+
+    state_name = "state"
+    target_name = "reward"
+    l_name = "agent_l"
+
+    # Select the experiment's data
+    sel_data = select_exp(exp_data, n=experiment)
+
     # Make a gif of a search
+    states = sel_data["state"]
+    for s in states:
+        pass
     # State
     # targets
     # agent
@@ -64,7 +76,6 @@ def plot_targets2d(env,
 
 
 def plot_position2d(exp_data,
-                    var_name="state",
                     boundary=(1, 1),
                     figsize=(3, 3),
                     color="black",
@@ -73,6 +84,7 @@ def plot_position2d(exp_data,
                     title=None,
                     ax=None):
     # fmt
+    var_name = "state"
     state = np.vstack(exp_data[var_name])
 
     # Create a fig obj?
@@ -97,8 +109,6 @@ def plot_position2d(exp_data,
 
 
 def plot_length(exp_data,
-                length_name="agent_l",
-                step_name="agent_step",
                 figsize=(4, 2),
                 color="black",
                 alpha=1.0,
@@ -106,6 +116,8 @@ def plot_length(exp_data,
                 title=None,
                 ax=None):
     # fmt
+    length_name = "agent_l"
+    step_name = "agent_step"
     l = np.asarray(exp_data[length_name])
     step = np.asarray(exp_data[step_name])
 
@@ -130,7 +142,6 @@ def plot_length(exp_data,
 
 def plot_length_hist(exp_data,
                      loglog=True,
-                     length_name="agent_l",
                      bins=20,
                      figsize=(3, 3),
                      color="black",
@@ -141,6 +152,7 @@ def plot_length_hist(exp_data,
                      ax=None):
 
     # fmt
+    length_name = "agent_l"
     x = np.asarray(exp_data[length_name])
 
     # Create a fig obj?

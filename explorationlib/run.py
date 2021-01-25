@@ -22,7 +22,6 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
 
     # !
     for k in range(num_experiments):
-        # print(k)
         # Reset
         agent.reset()
         env.reset()
@@ -42,6 +41,9 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
             action = agent(state)
             env.step(action)
             state, reward, done, info = env.last()
+
+            # Learn? Might do nothing.
+            agent.update(state, reward, info)
 
             # Log step env
             log["step"].append(n)

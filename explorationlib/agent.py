@@ -6,7 +6,7 @@ from collections import defaultdict
 
 
 class Agent2d:
-    """API stub - do not use."""
+    """API stub."""
     def __init__(self):
         self.seed()
         self.history = defaultdict(list)
@@ -68,12 +68,14 @@ class Uniform2d(Agent2d):
 
     def _delta(self, state):
         """Set step size"""
-        # delta - r * 4 steps for each l
+
+        # r * 4 steps for each l
         div = int(self.l / self.detection_radius) * 4
         if div > 1:
             delta = np.linspace(0, self.l, num=div)[1]
         else:
             delta = self.l
+
         return delta
 
     def forward(self, state):
@@ -88,7 +90,7 @@ class Uniform2d(Agent2d):
             self.l = self._l(state)
             self.angle = self._angle(state)
 
-            self.num_step += 0
+            self.num_step = 0
             self.delta = self._delta(state)
             self.step = self.delta
 
@@ -168,7 +170,7 @@ class Levy2d(Agent2d):
             self.angle = self._angle(state)
 
             self.delta = self._delta(state)
-            self.num_step += 0
+            self.num_step = 0
             self.step = self.delta
 
         # !
@@ -246,7 +248,7 @@ class TruncatedLevy2d(Agent2d):
             self.angle = self._angle(state)
 
             self.delta = self._delta(state)
-            self.num_step += 0
+            self.num_step = 0
             self.step = self.delta
 
         # !

@@ -4,6 +4,7 @@ import numpy as np
 from copy import deepcopy
 from itertools import cycle
 from collections import defaultdict
+from sklearn.neighbors import KDTree
 
 import gym
 from gym import spaces
@@ -173,15 +174,22 @@ class Field(gym.Env):
         """
         return (self.state, self.reward, self.done, self.info)
 
-    def add_targets(self, targets, values, detection_radius=1):
+    def add_targets(self, targets, values, detection_radius=1, kd_kwargs=None):
         """Add targets and their values"""
 
+        # Sanity
         if len(targets) != len(values):
             raise ValueError("targets and values must match.")
 
+        # Store raw targets simply (list)
         self.targets = targets
         self.values = values
         self.detection_radius = detection_radius
+
+        # Also store targets so lookup is efficient (tree)
+        if kd_kwargs is None:
+            kd_kwargs = {}
+        self._kd = KDTree(np.vstack(self.targets), **kd_kwargs)
 
     def check_targets(self):
         """Check for targets, and update self.reward if
@@ -194,15 +202,21 @@ class Field(gym.Env):
         if self.targets is None:
             return None
 
-        # Check for targets, build up 'reward' value
-        reward = 0
-        for i, t in enumerate(self.targets):
-            distance = np.sqrt(np.sum(np.power(t - self.state, 2)))
-            if distance <= self.detection_radius:
-                reward += self.values[i]
+        # Reinit reward. Assume we are not at a target
+        self.reward = 0
 
-        # Set reward
-        self.reward = reward
+        # How far are we and is it close enough to
+        # generate a reward? AKA are we at a target?
+        state = np.atleast_2d(np.asarray(self.state))
+        dist, ind = self._kd.query(state, k=1)
+
+        # Care about the closest; Fmt
+        dist = float(dist[0])
+        ind = int(ind[0])
+
+        # Test proximity
+        if dist <= self.detection_radius:
+            self.reward = self.values[ind]
 
     def seed(self, seed=None):
         self.np_random, seed = seeding.np_random(seed)
@@ -210,6 +224,7 @@ class Field(gym.Env):
 
     def reset(self):
         self.state = np.zeros(2)
+        self.reward = 0
         self.last()
 
     def render(self, mode='human', close=False):

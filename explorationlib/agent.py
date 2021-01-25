@@ -50,7 +50,6 @@ class Uniform2d(Agent2d):
         super().__init__()
         self.min_l = min_l
         self.max_l = max_l
-
         self.detection_radius = detection_radius
         self.reset()
 
@@ -62,7 +61,7 @@ class Uniform2d(Agent2d):
     def _delta(self, state):
         """Set step size"""
 
-        # r * 4 steps for each l
+        # r * 4 steps for each l (magic number)
         div = int(self.l / self.detection_radius) * 4
         if div > 1:
             delta = np.linspace(0, self.l, num=div)[1]
@@ -73,24 +72,22 @@ class Uniform2d(Agent2d):
 
     def forward(self, state):
         """Step forward."""
-        # -- Just go? --
+        # Go? or Turn?
         if self.l > self.step:
             self.num_step += 1
             self.step += self.delta
-        # Or sample a turn?
         else:
             self.num_turn += 1
+            self.num_step = 0
             self.l = self._l(state)
             self.angle = self._angle(state)
-
-            self.num_step = 0
             self.delta = self._delta(state)
             self.step = self.delta
 
-        # !
+        # Step
         action = self._convert(self.angle, self.delta)
 
-        # -- Log --
+        # Log
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
@@ -104,7 +101,6 @@ class Uniform2d(Agent2d):
         self.num_turn = 0
         self.l = 0
         self.angle = 0
-
         self.num_step = 0
         self.delta = 0
         self.step = 0
@@ -116,10 +112,8 @@ class Levy2d(Agent2d):
     def __init__(self, min_l=0.1, exponent=2, detection_radius=1):
         super().__init__()
         self.min_l = min_l
-
         self.exponent = exponent
         self.detection_radius = detection_radius
-
         self.reset()
 
     def _l(self, state):
@@ -133,8 +127,7 @@ class Levy2d(Agent2d):
 
     def _delta(self, state):
         """Set step size"""
-
-        # r * 4 steps for each l
+        # r * 4 steps for each l (magic number)
         div = int(self.l / self.detection_radius) * 4
         if div > 1:
             delta = np.linspace(0, self.l, num=div)[1]
@@ -145,25 +138,22 @@ class Levy2d(Agent2d):
 
     def forward(self, state):
         """Step the agent forward"""
-
-        # -- Just go? --
+        # Go? or Turn?
         if self.l > self.step:
             self.num_step += 1
             self.step += self.delta
-        # Or sample a turn?
         else:
             self.num_turn += 1
+            self.num_step = 0
             self.l = self._l(state)
             self.angle = self._angle(state)
-
             self.delta = self._delta(state)
-            self.num_step = 0
             self.step = self.delta
 
-        # !
+        # Step
         action = self._convert(self.angle, self.delta)
 
-        # -- Log --
+        # Log
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
@@ -174,11 +164,9 @@ class Levy2d(Agent2d):
 
     def reset(self):
         """Reset all counters, turns, and steps"""
-
         self.num_turn = 0
         self.l = 0
         self.angle = 0
-
         self.num_step = 0
         self.delta = 0
         self.step = 0
@@ -191,10 +179,8 @@ class TruncatedLevy2d(Agent2d):
         super().__init__()
         self.min_l = min_l
         self.max_l = max_l
-
         self.exponent = exponent
         self.detection_radius = detection_radius
-
         self.reset()
 
     def _l(self, state):
@@ -218,24 +204,22 @@ class TruncatedLevy2d(Agent2d):
 
     def forward(self, state):
         """Step forward."""
-        # -- Just go? --
+        # Go? Or Turn?
         if self.l > self.step:
             self.num_step += 1
             self.step += self.delta
-        # Or sample a turn?
         else:
             self.num_turn += 1
+            self.num_step = 0
             self.l = self._l(state)
             self.angle = self._angle(state)
-
             self.delta = self._delta(state)
-            self.num_step = 0
             self.step = self.delta
 
-        # !
+        # Step
         action = self._convert(self.angle, self.delta)
 
-        # -- Log --
+        # Log
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
@@ -249,7 +233,6 @@ class TruncatedLevy2d(Agent2d):
         self.num_turn = 0
         self.l = 0
         self.angle = 0
-
         self.num_step = 0
         self.delta = 0
         self.step = 0
@@ -261,15 +244,12 @@ class Diffusion2d(Agent2d):
     def __init__(self, min_l=0.1, scale=2, detection_radius=1):
         super().__init__()
         self.min_l = min_l
-
         self.scale = scale
         self.detection_radius = detection_radius
-
         self.reset()
 
     def _l(self, state):
         """Sample length"""
-
         i = 0
         while True and i < 10000:
             i += 1
@@ -279,7 +259,6 @@ class Diffusion2d(Agent2d):
 
     def _delta(self, state):
         """Set step size"""
-
         # delta - r * 4 steps for each l
         div = int(self.l / self.detection_radius) * 4
         if div > 1:
@@ -291,25 +270,22 @@ class Diffusion2d(Agent2d):
 
     def forward(self, state):
         """Step forward."""
-
-        # -- Just go? --
+        # Go? Or turn?
         if self.l > self.step:
             self.step += self.delta
             self.num_step += 1
-        # Or sample a turn?
         else:
             self.num_turn += 1
+            self.num_step = 0
             self.l = self._l(state)
             self.angle = self._angle(state)
             self.delta = self._delta(state)
-
-            self.num_step += 0
             self.step = self.delta
 
-        # !
+        # Step
         action = self._convert(self.angle, self.delta)
 
-        # -- Log --
+        # Log
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
@@ -320,11 +296,9 @@ class Diffusion2d(Agent2d):
 
     def reset(self):
         """Reset all counters, turns, and steps"""
-
         self.num_turn = 0
         self.l = 0
         self.angle = 0
-
         self.num_step = 0
         self.delta = 0
         self.step = 0

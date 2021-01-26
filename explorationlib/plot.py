@@ -5,36 +5,49 @@ import seaborn as sns
 from explorationlib.util import load
 from explorationlib.util import select_exp
 
+from celluloid import Camera
 
-def replay2d(name,
-             env,
-             exp_data,
-             experiment=0,
-             detection_radius=1,
-             figsize=(3, 3),
-             boundary=(1, 1)):
+
+def render_exp2d(name,
+                 env,
+                 exp_data,
+                 experiment=0,
+                 figsize=(3, 3),
+                 boundary=(1, 1)):
+    """Replay an experiment as a .gif"""
+
+    # Init the gif/fig
+    fig = plt.figure(figsize=figsize)
+    camera = Camera(fig)
 
     # Select the experiment's data
     sel_data = select_exp(exp_data, experiment)
 
-    from celluloid import Camera
-    fig = plt.figure(figsize=figsize)
-    camera = Camera(fig)
-
     # Plot targets
-    ax = plot_targets2d(env, figsize=figsize, boundary=boundary)
-    # ax.show()
+    ax = plt.subplot(311)
+    vec = np.vstack(env.targets)
+    ax.scatter(
+        vec[:, 0],
+        vec[:, 1],
+        env.values,  # value is size, literal
+        color="black",
+        alpha=1)
+    ax.set_xlim(-boundary[0], boundary[0])
+    ax.set_ylim(-boundary[1], boundary[1])
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
     camera.snap()
 
-    # Make a gif of a search
+    # Plot the search
+    d = env.detection_radius
     states = sel_data["state"]
     rewards = sel_data["rewards"]
     lengths = sel_data["agent_l"]
-
     for s, r, l in zip(states, rewards, lengths):
         ax.plot(s[0], s[1], color="purple", alpha=0.6)
         camera.snap()
 
+    # Render the movie
     animation = camera.animate()
     animation.save(f'{name}.gif')
 

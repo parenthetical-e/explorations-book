@@ -31,14 +31,6 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
         env.reset()
         state, reward, done, info = env.last()
 
-        # Log start
-        log["step"].append(0)
-        log["experiment"].append(k)
-        log["state"].append(state)
-        log["action"].append(np.zeros_like(state))
-        log["reward"].append(reward)
-        log["info"].append(info)
-
         # Run episode, for at most num_steps
         for n in range(1, num_steps):
             # Step

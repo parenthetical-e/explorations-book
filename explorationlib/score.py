@@ -36,14 +36,17 @@ def search_efficiency(exp_data):
         rewards = sel_data[target_name]
         steps = sel_data[length_name]
 
-        # Short circuit of no targets seen
+        # Short circuit if no targets...
         if np.isclose(np.sum(rewards), 0.0):
-            return 0.0
+            effs.append(0.0)
+            continue
 
+        # Other wise count targets and total
+        # path length travelled to find them
         total_l = 0
         total_N = 0
         for r, l in zip(rewards, steps):
-            # Not a target!
+            # Not a target?
             if np.isclose(r, 0.0):
                 total_l += l
             # Target!

@@ -91,6 +91,7 @@ class Uniform2d(Agent2d):
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
+        self.history["agent_step"].append(deepcopy(self.delta))
         self.history["agent_num_step"].append(deepcopy(self.num_step))
         self.history["agent_action"].append(deepcopy(action))
 
@@ -157,6 +158,7 @@ class Levy2d(Agent2d):
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
+        self.history["agent_step"].append(deepcopy(self.delta))
         self.history["agent_num_step"].append(deepcopy(self.num_step))
         self.history["agent_action"].append(deepcopy(action))
 
@@ -223,6 +225,7 @@ class TruncatedLevy2d(Agent2d):
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
+        self.history["agent_step"].append(deepcopy(self.delta))
         self.history["agent_num_step"].append(deepcopy(self.num_step))
         self.history["agent_action"].append(deepcopy(action))
 
@@ -289,6 +292,7 @@ class Diffusion2d(Agent2d):
         self.history["agent_num_turn"].append(deepcopy(self.num_turn))
         self.history["agent_angle"].append(deepcopy(self.angle))
         self.history["agent_l"].append(deepcopy(self.l))
+        self.history["agent_step"].append(deepcopy(self.delta))
         self.history["agent_num_step"].append(deepcopy(self.num_step))
         self.history["agent_action"].append(deepcopy(action))
 

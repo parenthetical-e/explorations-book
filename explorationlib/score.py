@@ -1,30 +1,24 @@
 import numpy as np
 from scipy import stats
+from explorationlib.util import select_exp
 
 
-def summary2d(exp_data,
-              target_name="reward",
-              length_name="agent_l",
-              angle_name="agent_angle"):
-    """2d search summary, as a dict"""
-
-    rew = average_reward(exp_data, target_name=target_name)
-    eta = search_efficient(exp_data,
-                           length_name=length_name,
-                           target_name=target_name)
-    rat = turn_ratio(exp_data, length_name=length_name, angle_name=angle_name)
-
-    return {"average_reward": rew, "search_efficient": eta, "turn_ratio": rat}
-
-
-def average_reward(exp_data, target_name="reward"):
+def average_reward(exp_data):
     """Average targets found"""
+    target_name = "exp_reward"
     reward = np.asarray(exp_data[target_name])
     return np.mean(reward)
 
 
-def search_efficient(exp_data, length_name="agent_l", target_name="reward"):
-    """Search efficiency - total N / total l
+def total_reward(exp_data):
+    """Total targets found"""
+    target_name = "exp_reward"
+    reward = np.asarray(exp_data[target_name])
+    return np.sum(reward)
+
+
+def search_efficiency(exp_data):
+    """Search efficiency, for each experiment.
 
     Citation
     --------
@@ -32,29 +26,31 @@ def search_efficient(exp_data, length_name="agent_l", target_name="reward"):
     """
 
     # Fmt
-    rewards = exp_data[target_name]
-    lengths = exp_data[length_name]
+    length_name = "agent_step"
+    target_name = "exp_reward"
 
-    # Short circuit of no targets seen
-    if np.isclose(np.sum(rewards), 0.0):
-        return 0.0
+    effs = []
+    for n in range(exp_data["num_experiments"]):
+        sel_data = select_exp(exp_data, n)
 
-    total_l = 0
-    total_N = 0
-    for r, l in zip(rewards, lengths):
-        # Not a target!
-        if np.isclose(r, 0.0):
-            total_l += l
-        # Target!
-        else:
-            total_l += l
-            total_N += 1
+        rewards = sel_data[target_name]
+        steps = sel_data[length_name]
 
-    return total_N / total_l
+        # Short circuit of no targets seen
+        if np.isclose(np.sum(rewards), 0.0):
+            return 0.0
 
+        total_l = 0
+        total_N = 0
+        for r, l in zip(rewards, steps):
+            # Not a target!
+            if np.isclose(r, 0.0):
+                total_l += l
+            # Target!
+            else:
+                total_l += l
+                total_N += 1
 
-def turn_ratio(exp_data, length_name="agent_l", angle_name="agent_angle"):
-    """Ratio of l / angle"""
-    l = np.asarray(exp_data[length_name])
-    angle = np.asarray(exp_data[angle_name])
-    return np.mean(l / angle)
+        effs.append(total_N / total_l)
+
+    return effs

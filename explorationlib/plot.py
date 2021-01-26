@@ -40,8 +40,8 @@ def render_exp2d(name,
 
     # Plot the search
     d = env.detection_radius
-    states = sel_data["state"]
-    rewards = sel_data["rewards"]
+    states = sel_data["exp_state"]
+    rewards = sel_data["exp_reward"]
     lengths = sel_data["agent_l"]
     for s, r, l in zip(states, rewards, lengths):
         ax.plot(s[0], s[1], color="purple", alpha=0.6)
@@ -104,7 +104,7 @@ def plot_position2d(exp_data,
                     title=None,
                     ax=None):
     # fmt
-    var_name = "state"
+    var_name = "exp_state"
     state = np.vstack(exp_data[var_name])
 
     # Create a fig obj?

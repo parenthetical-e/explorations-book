@@ -42,12 +42,12 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
             agent.update(state, reward, info)
 
             # Log step env
-            log["step"].append(n)
-            log["experiment"].append(k)
-            log["state"].append(state.copy())
-            log["action"].append(action.copy())
-            log["reward"].append(reward)
-            log["info"].append(info)
+            log["exp_step"].append(n)
+            log["num_experiment"].append(k)
+            log["exp_state"].append(state.copy())
+            log["exp_action"].append(action.copy())
+            log["exp_reward"].append(reward)
+            log["exp_info"].append(info)
 
             if done:
                 break
@@ -57,7 +57,9 @@ def experiment(name, agent, env, num_steps=1, num_experiments=1, seed=None):
             log[k].extend(deepcopy(agent.history[k]))
 
     # Save agent and env
-    log["name"] = base
+    log["exp_name"] = base
+    log["num_experiments"] = num_experiments
+    log["exp_num_steps"] = num_steps
     log["env"] = env.reset()
     log["agent"] = agent.reset()
 

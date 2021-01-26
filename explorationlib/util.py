@@ -15,16 +15,16 @@ def load(filename='checkpoint.pkl'):
         return cloudpickle.load(fi)
 
 
-def select_exp(exp_data, experiment):
+def select_exp(exp_data, num_experiment):
     """Select all data for a single experiment `n`"""
 
     # Get index for n
-    var_name = "experiment"
-    mask = np.asarray(exp_data[var_name]) == experiment
+    var_name = "num_experiment"
+    mask = np.asarray(exp_data[var_name]) == num_experiment
     mask = mask.tolist()
 
     # Don't mask
-    exclude = ["agent", "env", "name"]
+    exclude = ["agent", "env", "exp_name", "num_experiments", "exp_num_steps"]
 
     # Select n
     selected = defaultdict(list)

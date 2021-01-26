@@ -6,29 +6,37 @@ from explorationlib.util import load
 from explorationlib.util import select_exp
 
 
-def plot_experiment(name):
-    pass
-
-
-def replay2d(name, env, exp_data, experiment=0, detection_radius=1):
-
-    state_name = "state"
-    target_name = "reward"
-    l_name = "agent_l"
+def replay2d(name,
+             env,
+             exp_data,
+             experiment=0,
+             detection_radius=1,
+             figsize=(3, 3),
+             boundary=(1, 1)):
 
     # Select the experiment's data
-    sel_data = select_exp(exp_data, n=experiment)
+    sel_data = select_exp(exp_data, experiment)
+
+    from celluloid import Camera
+    fig = plt.figure(figsize=figsize)
+    camera = Camera(fig)
+
+    # Plot targets
+    ax = plot_targets2d(env, figsize=figsize, boundary=boundary)
+    # ax.show()
+    camera.snap()
 
     # Make a gif of a search
     states = sel_data["state"]
-    for s in states:
-        pass
-    # State
-    # targets
-    # agent
-    # radius? or other sense horizon?
+    rewards = sel_data["rewards"]
+    lengths = sel_data["agent_l"]
 
-    pass
+    for s, r, l in zip(states, rewards, lengths):
+        ax.plot(s[0], s[1], color="purple", alpha=0.6)
+        camera.snap()
+
+    animation = camera.animate()
+    animation.save(f'{name}.gif')
 
 
 def plot_targets2d(env,
@@ -36,7 +44,6 @@ def plot_targets2d(env,
                    boundary=(1, 1),
                    color="black",
                    alpha=1.0,
-                   markersize=1,
                    label=None,
                    title=None,
                    ax=None):

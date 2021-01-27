@@ -166,7 +166,7 @@ def plot_length_hist(exp_data,
                      figsize=(3, 3),
                      color="black",
                      alpha=1.0,
-                     density=False,
+                     density=True,
                      label=None,
                      title=None,
                      ax=None):

@@ -1,13 +1,23 @@
 - file: introduction
-- file: what-the-eff
-- file: the-run-around
-- file: snnnnniiiifff
-- file: be-best
-- file: oh-my-dilemma
-- file: oh-no-the-cat
-- file: what-dilemma
-- file: foraging-philosopher
-- file: so-artificial
-- file: kids-are-alright
-- file: do-not-eat-me
-- file: fish-mice-monkeys
+  numbered: true
+  
+- part: Chapters
+  chapters:
+  - file: what-the-eff
+  - file: the-run-around
+  - file: snnnnniiiifff
+  - file: be-best
+  - file: oh-my-dilemma
+  - file: oh-no-the-cat
+  - file: what-dilemma
+  - file: foraging-philosopher
+  - file: so-artificial
+  - file: kids-are-alright
+  - file: do-not-eat-me
+  - file: fish-mice-monkeys
+
+- part: Assignments
+  chapters:
+  - file: python.ipynb
+  - file: collab.ipynb
+

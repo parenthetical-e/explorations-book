@@ -45,8 +45,6 @@
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -274,6 +272,13 @@
   <a class="reference internal nav-link" href="#assignment-2">
    Assignment 2
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#science">
+     Science!
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -308,14 +313,14 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/parenthetical-e/explorationlib
-  Cloning https://github.com/parenthetical-e/explorationlib to /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-y4eznz80
-  Running command git clone -q https://github.com/parenthetical-e/explorationlib /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-y4eznz80
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Cloning https://github.com/parenthetical-e/explorationlib to /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-5dk0z_jv
+  Running command git clone -q https://github.com/parenthetical-e/explorationlib /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-5dk0z_jv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied (use --upgrade to upgrade): explorationlib==0.0.1 from git+https://github.com/parenthetical-e/explorationlib in /Users/qualia/Code/explorationlib
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: explorationlib
+Building wheels for collected packages: explorationlib
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for explorationlib (setup.py) ... ?25l-
@@ -324,9 +329,12 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for explorationlib: filename=explorationlib-0.0.1-cp36-none-any.whl size=10035 sha256=ea148915a3e785a6578f9bfd74c7270f84e973194ddf9f6aa8d7bffa8805e970
-  Stored in directory: /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-ephem-wheel-cache-vhab4fm6/wheels/f2/63/8a/9bc4a5fc4559289dfa95123fde31363e145e95df0cca3d2886
+?25h  Created wheel for explorationlib: filename=explorationlib-0.0.1-cp36-none-any.whl size=10035 sha256=3d6404c11dce3084a020d9d46cba1833ae3e7477af2498ce66a82dcd205f4759
+  Stored in directory: /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-ephem-wheel-cache-01ru421w/wheels/f2/63/8a/9bc4a5fc4559289dfa95123fde31363e145e95df0cca3d2886
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully built explorationlib
@@ -334,14 +342,14 @@
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: celluloid in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (0.2.0)
 Requirement already satisfied: matplotlib in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from celluloid) (3.1.2)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (2.4.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.11 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (1.17.3)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (2.4.5)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (1.1.0)
 Requirement already satisfied: python-dateutil&gt;=2.1 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (2.8.1)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (1.1.0)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (0.10.0)
-Requirement already satisfied: six&gt;=1.5 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from python-dateutil&gt;=2.1-&gt;matplotlib-&gt;celluloid) (1.13.0)
+Requirement already satisfied: numpy&gt;=1.11 in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from matplotlib-&gt;celluloid) (1.17.3)
+Requirement already satisfied: six in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from cycler&gt;=0.10-&gt;matplotlib-&gt;celluloid) (1.13.0)
 Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/lib/python3.6/site-packages (from kiwisolver&gt;=1.0.1-&gt;matplotlib-&gt;celluloid) (42.0.2.post20191201)
 </pre></div>
 </div>
@@ -512,7 +520,7 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "b457acc88e204287a18f14f4f931029d"}
+{"version_major": 2, "version_minor": 0, "model_id": "e79d73037b9645108e279b3a8943e6ef"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -529,7 +537,7 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fc0893ba160&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdf75ab7278&gt;
 </pre></div>
 </div>
 <img alt="_images/explorationlib_23_1.png" src="_images/explorationlib_23_1.png" />
@@ -580,7 +588,7 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.457286432160804
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6683417085427136
 </pre></div>
 </div>
 </div>
@@ -592,7 +600,7 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.4324395707830133]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.6524087527585765]
 </pre></div>
 </div>
 </div>
@@ -604,6 +612,8 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 <div class="section" id="assignment-2">
 <h2>Assignment 2<a class="headerlink" href="#assignment-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="science">
+<h3>Science!<a class="headerlink" href="#science" title="Permalink to this headline">¶</a></h3>
 <p>Let’s run our first real experiment. Let’s assume that the walker from Assignment 1 has the optimal scale of noise to search its 10 by 10 box, with walls. (This is not tru but put that aside). Now, what if the “world” (its box) suddenly got ten times bigger, but the number of targets stayed the same….</p>
 <p>The goal of this experiment is to find out, with your acting as an oracle. Can you help the walker discover a new noise scale that improves, or returns, the search efficient to its previous value?</p>
 <div class="cell docutils container">
@@ -649,11 +659,11 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "221f06ed23b04c19b353b9fc39674337"}
+{"version_major": 2, "version_minor": 0, "model_id": "c99137a893024b6f8d6159f4f9ae0518"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; Mean 1.4224405269488989, SD: 0.31686478370312626
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; Mean 1.4568527750087321, SD: 0.33036252049689496
 </pre></div>
 </div>
 </div>
@@ -678,12 +688,7 @@ Requirement already satisfied: setuptools in /Users/qualia/anaconda3/envs/py3.6/
 </div>
 </div>
 </div>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"a601edbd31074eb7b110d9edd6a3068b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "894873f85b184d3b9bd2ea000d1f5e18": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": "initial"}}, "9d3e5d9b3f824ccc886d8b9b7806c251": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "explorationlib_a1: 100%", "description_tooltip": null, "layout": "IPY_MODEL_a601edbd31074eb7b110d9edd6a3068b", "max": 1.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_894873f85b184d3b9bd2ea000d1f5e18", "value": 1.0}}, "17345a5bc2c146efa813999889c32202": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2ff424a5b838452e91e6832d1cbe26df": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "0b3d6672ad4c48769b6660a63b4b287c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_17345a5bc2c146efa813999889c32202", "placeholder": "\u200b", "style": "IPY_MODEL_2ff424a5b838452e91e6832d1cbe26df", "value": " 1/1 [00:00&lt;00:00,  5.97it/s]"}}, "9a0230c58a264110af669b4372b17158": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b457acc88e204287a18f14f4f931029d": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_9d3e5d9b3f824ccc886d8b9b7806c251", "IPY_MODEL_0b3d6672ad4c48769b6660a63b4b287c"], "layout": "IPY_MODEL_9a0230c58a264110af669b4372b17158"}}, "e27d64b6be5f4ac68e1f4e6d9fcd6e8f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9496fbe203b144799d472cbadd3df435": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": "initial"}}, "bca8d89c539f451b8ceff1f14056406f": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "explorationlib_a2_10: 100%", "description_tooltip": null, "layout": "IPY_MODEL_e27d64b6be5f4ac68e1f4e6d9fcd6e8f", "max": 200.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_9496fbe203b144799d472cbadd3df435", "value": 200.0}}, "a3978cb8090b4f298151bddd167b1a17": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ad53378ebc2444a1b1dee093c05457ed": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "9de82c909cc94c89acfe08b4ca697f98": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_a3978cb8090b4f298151bddd167b1a17", "placeholder": "\u200b", "style": "IPY_MODEL_ad53378ebc2444a1b1dee093c05457ed", "value": " 200/200 [00:10&lt;00:00, 18.95it/s]"}}, "f8097888b5a54f6aa501cd0adc9d6acf": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "221f06ed23b04c19b353b9fc39674337": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_bca8d89c539f451b8ceff1f14056406f", "IPY_MODEL_9de82c909cc94c89acfe08b4ca697f98"], "layout": "IPY_MODEL_f8097888b5a54f6aa501cd0adc9d6acf"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
+</div>
 
     <script type="text/x-thebe-config">
     {

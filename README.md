@@ -15,17 +15,7 @@ If you'd like to develop on and build the Exploration book, you should:
 - Run `make book`
 
 A fully-rendered HTML version of the book will be built in `book/_build/html/`.
-s
-### Hosting the book
-
-The html version of the book is hosted on the `gh-pages` branch of this repo. A GitHub actions workflow has been created that automatically builds and pushes the book to this branch on a push or pull request to main.
-
-If you wish to disable this automation, you may remove the GitHub actions workflow and build the book manually by:
-
-- Navigating to your local build; and running,
-- `ghp-import -n -p -f book/_build/html`
-
-This will automatically push your build to the `gh-pages` branch. More information on this hosting process can be found [here](https://jupyterbook.org/publish/gh-pages.html#manually-host-your-book-with-github-pages).
+If possible a verse ion of the book hosted on github will be available. You made need to install the `ghp-import` package.
 
 ## Contributors
 

@@ -2,6 +2,8 @@
 
 Exploration explorables. This repo contains the source for a book on biologocal exploration, and a python library for simulating exploration.
 
+Read the book here - https://parenthetical-e.github.io/explorations-book/introduction.html
+
 ## Usage
 
 ### Building the book

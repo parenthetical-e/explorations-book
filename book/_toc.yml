@@ -18,5 +18,5 @@
 - part: Assignments
   chapters:
   - file: python.ipynb
-  - file: colab.ipynb
+  - file: explorationlib.ipynb
 

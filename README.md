@@ -12,11 +12,10 @@ If you'd like to develop on and build the Exploration book, you should:
 
 - Clone this repository and run
 - Run `pip install -r requirements.txt` (it is recommended you do this within a virtual environment)
-- (Recommended) Remove the existing `book/_build/` directory
-- Run `jupyter-book build book/`
+- Run `make book`
 
 A fully-rendered HTML version of the book will be built in `book/_build/html/`.
-
+s
 ### Hosting the book
 
 The html version of the book is hosted on the `gh-pages` branch of this repo. A GitHub actions workflow has been created that automatically builds and pushes the book to this branch on a push or pull request to main.

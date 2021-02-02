@@ -9,6 +9,14 @@ title                       : Explorations!?  # The title of the book. Will be p
 author                      : Erik J Peterson  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
+
+# Information about where the book exists on the web
+repository:
+  url                       : https://github.com/parenthetical-e/explorations-book
+  path_to_book              : book/
+  branch                    : main 
+
 # only_build_toc_files        : true
 launch_buttons:
   colab_url: "https://colab.research.google.com"
+  binderhub_url: "https://mybinder.org" 

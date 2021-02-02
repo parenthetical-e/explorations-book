@@ -10,6 +10,10 @@ author                      : Erik J Peterson  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
 
+# Don't execute.
+execute:
+  execute_notebooks         : off
+
 # Information about where the book exists on the web
 repository:
   url                       : https://github.com/parenthetical-e/explorations-book

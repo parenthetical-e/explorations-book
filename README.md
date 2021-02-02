@@ -1,6 +1,6 @@
 # Explorations!?
 
-Exploration explorables. This repo contains the source for a book on biologocal exploration, and a python library for simulating exploration.
+Exploration explorables. This repo contains the source for a book on biological exploration, and a python library for simulating exploration.
 
 Read the book here - https://parenthetical-e.github.io/explorations-book/introduction.html
 
@@ -15,7 +15,7 @@ If you'd like to develop on and build the Exploration book, you should:
 - Run `make book`
 
 A fully-rendered HTML version of the book will be built in `book/_build/html/`.
-If possible a verse ion of the book hosted on github will be available. You made need to install the `ghp-import` package.
+If possible a version of the book hosted on github will be available. You need to install the `ghp-import` package.
 
 ## Contributors
 

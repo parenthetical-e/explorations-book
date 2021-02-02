@@ -306,7 +306,7 @@
 <p>Colab’s come with many of the libraries we will need. It does not come with <em>explorationlib</em>. It’s a module we will be using, and was written to support this book. Let’s Install it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install git+https://github.com/parenthetical-e/explorationlib
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install --update git+https://github.com/parenthetical-e/explorationlib
 <span class="o">!</span>pip install celluloid # <span class="k">for</span> the gifs
 </pre></div>
 </div>
@@ -475,11 +475,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>colab_test_simple: 100%|██████████| 1/1 [00:00&lt;00:00,  6.76it/s]
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="plot">
@@ -490,12 +485,6 @@
 <span class="n">plot_targets2d</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">boundary</span><span class="o">=</span><span class="n">boundary</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Simple box&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff67633d438&gt;
-</pre></div>
-</div>
-<img alt="_images/explorationlib_23_1.png" src="_images/explorationlib_23_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -529,9 +518,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/explorationlib_24_0.png" src="_images/explorationlib_24_0.png" />
-</div>
 </div>
 </div>
 <div class="section" id="score">
@@ -542,25 +528,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.48743718592964824
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_efficiency</span><span class="p">(</span><span class="n">exp_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">87</span><span class="n">a8bb90a0cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">search_efficiency</span><span class="p">(</span><span class="n">exp_data</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;search_efficiency&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -614,12 +585,6 @@
 <span class="c1"># Score</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="n">search_efficiency</span><span class="p">(</span><span class="n">exp_data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt;&gt; Mean {np.mean(scores)}, SD: {np.std(scores)}&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>explorationlib_a2_10: 100%|██████████| 200/200 [00:10&lt;00:00, 18.20it/s]
-&gt;&gt;&gt; Mean 1.5621350979920425, SD: 0.3153409911794343
 </pre></div>
 </div>
 </div>

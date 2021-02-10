@@ -19,4 +19,5 @@
   chapters:
   - file: python.ipynb
   - file: explorationlib.ipynb
+  - file: therunaround.ipynb
 

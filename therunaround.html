@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 1 - The Runaround - Lab &#8212; Explorations!?</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introduction to explorationlib." href="explorationlib.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Explorations!?</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Introduction to python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="explorationlib.html">
+   Introduction to
+   <em>
+    explorationlib
+   </em>
+   .
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 1 - The Runaround - Lab
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/therunaround.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/parenthetical-e/explorations-book/main?urlpath=tree/book/therunaround.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/parenthetical-e/explorations-book/blob/main/book/therunaround.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-and-import-needed-modules">
+   Install and import needed modules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-1-getting-to-know-our-explorers">
+   Section 1 - getting to know our explorers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-1">
+     Question 1.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-2">
+     Question 1.2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-3">
+     Question 1.3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-4">
+     Question 1.4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-1-5">
+     Question 1.5
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#section-2-a-competition-in-exploration">
+   Section 2 - a competition in exploration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#question-2-1">
+     Question 2.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bonus-question">
+     Bonus question:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="week-1-the-runaround-lab">
+<h1>Week 1 - The Runaround - Lab<a class="headerlink" href="#week-1-the-runaround-lab" title="Permalink to this headline">¶</a></h1>
+<p>In this assignment we take on random exploration, as a classic battle of brownian versus levy.</p>
+<p>There are two goals. First to introduce these random walks, and to compare their properties. Second to contrast them, in the same search environments.</p>
+<div class="section" id="install-and-import-needed-modules">
+<h2>Install and import needed modules<a class="headerlink" href="#install-and-import-needed-modules" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install explorationlib?</span>
+<span class="o">!</span>pip install --upgrade git+https://github.com/parenthetical-e/explorationlib
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/parenthetical-e/explorationlib
+  Cloning https://github.com/parenthetical-e/explorationlib to /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-1te7amk5
+  Running command git clone -q https://github.com/parenthetical-e/explorationlib /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-1te7amk5
+Building wheels for collected packages: explorationlib
+  Building wheel for explorationlib (setup.py) ... ?25ldone
+?25h  Created wheel for explorationlib: filename=explorationlib-0.0.1-cp36-none-any.whl size=10477 sha256=f52e6513acd461354fdc3618e5a55769ff3769981a3c0caee947f683c544257f
+  Stored in directory: /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-ephem-wheel-cache-vetvt2gg/wheels/f2/63/8a/9bc4a5fc4559289dfa95123fde31363e145e95df0cca3d2886
+Successfully built explorationlib
+Installing collected packages: explorationlib
+  Found existing installation: explorationlib 0.0.1
+    Uninstalling explorationlib-0.0.1:
+      Successfully uninstalled explorationlib-0.0.1
+Successfully installed explorationlib-0.0.1
+</pre></div>
+</div>
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 38;
+                var nbb_unformatted_code = "# Install explorationlib, only if needed\ntry:\n    import fklkf # explorationlib\nexcept:\n    !pip install --upgrade git+https://github.com/parenthetical-e/explorationlib";
+                var nbb_formatted_code = "# Install explorationlib, only if needed\ntry:\n    import fklkf  # explorationlib\nexcept:\n    !pip install --upgrade git+https://github.com/parenthetical-e/explorationlib";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import misc</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># Vis - 1</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Exp</span>
+<span class="kn">from</span> <span class="nn">explorationlib.run</span> <span class="kn">import</span> <span class="n">experiment</span>
+<span class="kn">from</span> <span class="nn">explorationlib.util</span> <span class="kn">import</span> <span class="n">select_exp</span>
+<span class="kn">from</span> <span class="nn">explorationlib.util</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">explorationlib.util</span> <span class="kn">import</span> <span class="n">save</span>
+
+<span class="c1"># Agents</span>
+<span class="kn">from</span> <span class="nn">explorationlib.agent</span> <span class="kn">import</span> <span class="n">Diffusion2d</span>
+<span class="kn">from</span> <span class="nn">explorationlib.agent</span> <span class="kn">import</span> <span class="n">Levy2d</span>
+<span class="kn">from</span> <span class="nn">explorationlib.agent</span> <span class="kn">import</span> <span class="n">TruncatedLevy2d</span>
+
+<span class="c1"># Env</span>
+<span class="kn">from</span> <span class="nn">explorationlib.local_gym</span> <span class="kn">import</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">explorationlib.local_gym</span> <span class="kn">import</span> <span class="n">Bounded</span>
+<span class="kn">from</span> <span class="nn">explorationlib.local_gym</span> <span class="kn">import</span> <span class="n">Grid</span> 
+<span class="kn">from</span> <span class="nn">explorationlib.local_gym</span> <span class="kn">import</span> <span class="n">uniform_targets</span>
+<span class="kn">from</span> <span class="nn">explorationlib.local_gym</span> <span class="kn">import</span> <span class="n">constant_values</span>
+
+<span class="c1"># Vis - 2</span>
+<span class="kn">from</span> <span class="nn">explorationlib.plot</span> <span class="kn">import</span> <span class="n">plot_position2d</span>
+<span class="kn">from</span> <span class="nn">explorationlib.plot</span> <span class="kn">import</span> <span class="n">plot_length_hist</span>
+<span class="kn">from</span> <span class="nn">explorationlib.plot</span> <span class="kn">import</span> <span class="n">plot_length</span>
+<span class="kn">from</span> <span class="nn">explorationlib.plot</span> <span class="kn">import</span> <span class="n">plot_targets2d</span>
+<span class="kn">from</span> <span class="nn">explorationlib.plot</span> <span class="kn">import</span> <span class="n">render_2d</span>
+<span class="kn">from</span> <span class="nn">explorationlib.plot</span> <span class="kn">import</span> <span class="n">show_gif</span>
+
+<span class="c1"># Score</span>
+<span class="kn">from</span> <span class="nn">explorationlib.score</span> <span class="kn">import</span> <span class="n">search_efficiency</span>
+<span class="kn">from</span> <span class="nn">explorationlib.score</span> <span class="kn">import</span> <span class="n">average_reward</span>
+<span class="kn">from</span> <span class="nn">explorationlib.score</span> <span class="kn">import</span> <span class="n">first_reward</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A home for data</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+
+<span class="c1"># Shared naming</span>
+<span class="n">base_name</span> <span class="o">=</span> <span class="s2">&quot;data/lab1&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pretty plots</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+<span class="o">%</span><span class="k">config</span> IPCompleter.greedy=True
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.facecolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.facecolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;16&quot;</span>
+
+<span class="c1"># Dev</span>
+<span class="c1"># Uncomment for local development</span>
+<span class="o">%</span><span class="k">load_ext</span> nb_black
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 3;
+                var nbb_unformatted_code = "# Pretty plots\n%matplotlib inline\n%config InlineBackend.figure_format='retina'\n%config IPCompleter.greedy=True\n\nplt.rcParams[\"axes.facecolor\"] = \"white\"\nplt.rcParams[\"figure.facecolor\"] = \"white\"\nplt.rcParams[\"font.size\"] = \"16\"\n\n# Dev\n# Uncomment for local development\n%load_ext nb_black\n%load_ext autoreload\n%autoreload 2";
+                var nbb_formatted_code = "# Pretty plots\n%matplotlib inline\n%config InlineBackend.figure_format='retina'\n%config IPCompleter.greedy=True\n\nplt.rcParams[\"axes.facecolor\"] = \"white\"\nplt.rcParams[\"figure.facecolor\"] = \"white\"\nplt.rcParams[\"font.size\"] = \"16\"\n\n# Dev\n# Uncomment for local development\n%load_ext nb_black\n%load_ext autoreload\n%autoreload 2";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+</div>
+<div class="section" id="section-1-getting-to-know-our-explorers">
+<h2>Section 1 - getting to know our explorers<a class="headerlink" href="#section-1-getting-to-know-our-explorers" title="Permalink to this headline">¶</a></h2>
+<p>Run a diffusion and levy walker for 10000 steps, in an unbounded Field. Do 10 different experiments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">num_experiments</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">detection_radius</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">min_length</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Should be &lt; (2 * detection_radius)</span>
+
+<span class="c1"># Cleanup </span>
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{base_name}</span><span class="s2">_*.pkl&quot;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    
+<span class="c1"># Create env </span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+
+<span class="c1"># Create agents</span>
+<span class="n">diffusion</span> <span class="o">=</span> <span class="n">Diffusion2d</span><span class="p">(</span>
+    <span class="n">min_length</span><span class="o">=</span><span class="n">min_length</span><span class="p">,</span> 
+    <span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> 
+    <span class="n">detection_radius</span><span class="o">=</span><span class="n">detection_radius</span><span class="p">,</span> 
+    <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">levy</span> <span class="o">=</span> <span class="n">Levy2d</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="n">min_length</span><span class="p">,</span> 
+    <span class="n">exponent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">detection_radius</span><span class="o">=</span><span class="n">detection_radius</span><span class="p">,</span> 
+    <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># !</span>
+<span class="n">levy_exp</span> <span class="o">=</span> <span class="n">experiment</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{base_name}</span><span class="s2">_levy_1.pkl&quot;</span><span class="p">,</span> 
+    <span class="n">levy</span><span class="p">,</span> 
+    <span class="n">env</span><span class="p">,</span> 
+    <span class="n">num_steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">,</span> 
+    <span class="n">num_experiments</span><span class="o">=</span><span class="n">num_experiments</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">59393</span><span class="p">,</span>
+    <span class="n">dump</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">diffusion_exp</span> <span class="o">=</span> <span class="n">experiment</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{base_name}</span><span class="s2">_diffusion_1.pkl&quot;</span><span class="p">,</span> 
+    <span class="n">diffusion</span><span class="p">,</span> 
+    <span class="n">env</span><span class="p">,</span> 
+    <span class="n">num_steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">,</span> 
+    <span class="n">num_experiments</span><span class="o">=</span><span class="n">num_experiments</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">59393</span><span class="p">,</span>
+    <span class="n">dump</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lab1_levy_1: 100%|██████████| 10/10 [00:06&lt;00:00,  1.58it/s]
+lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1.33it/s]
+</pre></div>
+</div>
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 8;
+                var nbb_unformatted_code = "# Setup\nnum_steps = 10000\nnum_experiments = 10\ndetection_radius = 1\n\nmin_length = 0.1\nstep_size = 0.1  # Should be < (2 * detection_radius)\n\n# Cleanup \nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n    \n# Create env \nenv = Field()\n\n# Create agents\ndiffusion = Diffusion2d(\n    min_length=min_length, \n    scale=0.1, \n    detection_radius=detection_radius, \n    step_size=step_size,\n)\nlevy = Levy2d(min_length=min_length, \n    exponent=2, \n    detection_radius=detection_radius, \n    step_size=step_size,\n)\n\n# !\nlevy_exp = experiment(f\"{base_name}_levy_1.pkl\", \n    levy, \n    env, \n    num_steps=num_steps, \n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)\ndiffusion_exp = experiment(f\"{base_name}_diffusion_1.pkl\", \n    diffusion, \n    env, \n    num_steps=num_steps, \n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)";
+                var nbb_formatted_code = "# Setup\nnum_steps = 10000\nnum_experiments = 10\ndetection_radius = 1\n\nmin_length = 0.1\nstep_size = 0.1  # Should be < (2 * detection_radius)\n\n# Cleanup\nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n\n# Create env\nenv = Field()\n\n# Create agents\ndiffusion = Diffusion2d(\n    min_length=min_length,\n    scale=0.1,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\nlevy = Levy2d(\n    min_length=min_length,\n    exponent=2,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\n\n# !\nlevy_exp = experiment(\n    f\"{base_name}_levy_1.pkl\",\n    levy,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)\ndiffusion_exp = experiment(\n    f\"{base_name}_diffusion_1.pkl\",\n    diffusion,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View size</span>
+<span class="n">plot_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Generate 10 plots of walking</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_experiments</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_position2d</span><span class="p">(</span>
+        <span class="n">select_exp</span><span class="p">(</span><span class="n">levy_exp</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+        <span class="n">boundary</span><span class="o">=</span><span class="n">plot_boundary</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_position2d</span><span class="p">(</span>
+        <span class="n">select_exp</span><span class="p">(</span><span class="n">diffusion_exp</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+        <span class="n">boundary</span><span class="o">=</span><span class="n">plot_boundary</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Diffusion&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Experiment </span><span class="si">{n}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_7_0.png" src="_images/therunaround_7_0.png" />
+<img alt="_images/therunaround_7_1.png" src="_images/therunaround_7_1.png" />
+<img alt="_images/therunaround_7_2.png" src="_images/therunaround_7_2.png" />
+<img alt="_images/therunaround_7_3.png" src="_images/therunaround_7_3.png" />
+<img alt="_images/therunaround_7_4.png" src="_images/therunaround_7_4.png" />
+<img alt="_images/therunaround_7_5.png" src="_images/therunaround_7_5.png" />
+<img alt="_images/therunaround_7_6.png" src="_images/therunaround_7_6.png" />
+<img alt="_images/therunaround_7_7.png" src="_images/therunaround_7_7.png" />
+<img alt="_images/therunaround_7_8.png" src="_images/therunaround_7_8.png" />
+<img alt="_images/therunaround_7_9.png" src="_images/therunaround_7_9.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 9;
+                var nbb_unformatted_code = "# View size\nplot_boundary = (20, 20)\n\n# Generate 10 plots of walking\nfor n in range(num_experiments):\n    ax = None\n    ax = plot_position2d(\n        select_exp(levy_exp, n),\n        boundary=plot_boundary,\n        label=f\"Levy\",\n        color=\"purple\",\n        alpha=0.6,\n        ax=ax,\n    )\n    ax = plot_position2d(\n        select_exp(diffusion_exp, n),\n        boundary=plot_boundary,\n        label=f\"Diffusion\",\n        title=f\"Experiment {n}\",\n        color=\"brown\",\n        alpha=0.6,\n        ax=ax,\n    )";
+                var nbb_formatted_code = "# View size\nplot_boundary = (20, 20)\n\n# Generate 10 plots of walking\nfor n in range(num_experiments):\n    ax = None\n    ax = plot_position2d(\n        select_exp(levy_exp, n),\n        boundary=plot_boundary,\n        label=f\"Levy\",\n        color=\"purple\",\n        alpha=0.6,\n        ax=ax,\n    )\n    ax = plot_position2d(\n        select_exp(diffusion_exp, n),\n        boundary=plot_boundary,\n        label=f\"Diffusion\",\n        title=f\"Experiment {n}\",\n        color=\"brown\",\n        alpha=0.6,\n        ax=ax,\n    )";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="section" id="question-1-1">
+<h3>Question 1.1<a class="headerlink" href="#question-1-1" title="Permalink to this headline">¶</a></h3>
+<p>Based on these 10 example experiments please describe how similar or different the Levy and diffusion search strategies seem to be? Visually, that is. Can you tell the difference between them in <em>all</em> 10 examples?</p>
+<p><em>Note</em>: Don’t be afraid to change the <em>plot boundary</em> to zoom in or out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here, as a comment</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 10;
+                var nbb_unformatted_code = "# Write your answer here, as a comment";
+                var nbb_formatted_code = "# Write your answer here, as a comment";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<p>Create one distribution for all Levy walks, and one distribution and plot them together. First plot the distributions, the plot them in log-log space. AKA the space in which power laws, like the Levy <span class="math notranslate nohighlight">\(p(l) = 1 / l^{\mu}\)</span>, are easiest to identify.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length_hist</span><span class="p">(</span>
+    <span class="n">levy_exp</span><span class="p">,</span>
+    <span class="n">loglog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length_hist</span><span class="p">(</span>
+    <span class="n">diffusion_exp</span><span class="p">,</span>
+    <span class="n">loglog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diffusion&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span> <span class="c1"># Make pretty plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_11_0.png" src="_images/therunaround_11_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 11;
+                var nbb_unformatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=False,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6,4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=False,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine() # Make pretty plot";
+                var nbb_formatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=False,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=False,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine()  # Make pretty plot";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<ul class="simple">
+<li><p>Wow, the power law is steep right!? Can you see the exponential nature of diffusion?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length_hist</span><span class="p">(</span>
+    <span class="n">levy_exp</span><span class="p">,</span>
+    <span class="n">loglog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length_hist</span><span class="p">(</span>
+    <span class="n">diffusion_exp</span><span class="p">,</span>
+    <span class="n">loglog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diffusion&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span> <span class="c1"># Make pretty plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_13_0.png" src="_images/therunaround_13_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 12;
+                var nbb_unformatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine() # Make pretty plot";
+                var nbb_formatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine()  # Make pretty plot";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+</div>
+<div class="section" id="question-1-2">
+<h3>Question 1.2<a class="headerlink" href="#question-1-2" title="Permalink to this headline">¶</a></h3>
+<p>In</p>
+<blockquote>
+<div><p>Viswanathan, G. M. et al. Optimizing the success of random searches. Nature 401, 911–914 (1999).</p>
+</div></blockquote>
+<p>the authors made two big claims only one of which I have paid attention too. Levy flight optimality, that is. The <em>other claim</em> is that for dense targets the optimal search strategy is <em>not</em> Levy, but is simple diffusion (AKA brownian motion).</p>
+<p><em>Reminder</em>: The claim of Levy optimality holds only when the detection radius <span class="math notranslate nohighlight">\(r_v\)</span> is much less than the average distance between targets <span class="math notranslate nohighlight">\(\bar d\)</span>. That is, when <span class="math notranslate nohighlight">\(r_v &lt;&lt; \bar d\)</span>. Let’s call this a sparse setting. This means that as <span class="math notranslate nohighlight">\(r_v\)</span> approaches <span class="math notranslate nohighlight">\(\bar d\)</span>, the problem becomes what we can call dense. Sparse and dense refer to the targets, of course.</p>
+<p>These distributions are huge hints to why Levy and diffusion are optimal, respectively, in dense and sparse settings. Can you explain why?</p>
+<p><em>Hint</em>: Reflect on the distribution of lengths. Consider where the most “mass” is in each distribution. Then reflect on the two settings. Maybe make plots of each setting to help you?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here, as a comment</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 58;
+                var nbb_unformatted_code = "# Write your answer here, as a comment";
+                var nbb_formatted_code = "# Write your answer here, as a comment";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+</div>
+<div class="section" id="question-1-3">
+<h3>Question 1.3<a class="headerlink" href="#question-1-3" title="Permalink to this headline">¶</a></h3>
+<p>I have already claimed the ratio <span class="math notranslate nohighlight">\(r_v/\bar{d}\)</span> is a reasonable way to measure the difficulty of a random search problem. Where, that is, <span class="math notranslate nohighlight">\(r_v\)</span> is the detection radius of the explorer and <span class="math notranslate nohighlight">\(\bar d\)</span> is the average distance between targets.</p>
+<p>In theory we can change this ratio by changing <span class="math notranslate nohighlight">\(r_v\)</span> directly or manipulate <span class="math notranslate nohighlight">\(d\)</span> by changing the total number of targets <span class="math notranslate nohighlight">\(N\)</span>, or the size of the domain <span class="math notranslate nohighlight">\(L\)</span>. For randomly placed targets, anyway. In practice, as in the examples below, we change only <span class="math notranslate nohighlight">\(r_v\)</span> or <span class="math notranslate nohighlight">\(N\)</span>. Can you guess the practical reason for this? Why hold <span class="math notranslate nohighlight">\(L\)</span> fixed? (AKA the <code class="docutils literal notranslate"><span class="pre">boundary</span></code>.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here, as a comment</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-1-4">
+<h3>Question 1.4<a class="headerlink" href="#question-1-4" title="Permalink to this headline">¶</a></h3>
+<p>Can you come up with a counter example where the ratio <span class="math notranslate nohighlight">\(r_v/\bar{d}\)</span> could be misleading, incomplete, or both?</p>
+<p><em>Hint</em>: Try drawing out different arrangements of targets and search domains?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here, as a comment</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-1-5">
+<h3>Question 1.5<a class="headerlink" href="#question-1-5" title="Permalink to this headline">¶</a></h3>
+<p>I have claimed the ratio <span class="math notranslate nohighlight">\(N_t / \bar l\)</span> is a reasonable way to measure how global or local a search is. Where, that is, <span class="math notranslate nohighlight">\(N_t\)</span> number of turns and <span class="math notranslate nohighlight">\(\bar l \)</span> is the average length travel.</p>
+<p>Examine the plot below, in light of this claim. How global or local are levy and diffusion searches in comparison to each other? Why does the levy explorer have so many more turns?</p>
+<p><em>Hint</em>: For a hint on the turn number count question, look at the distributions from the previous section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length</span><span class="p">(</span>
+    <span class="n">select_exp</span><span class="p">(</span><span class="n">levy_exp</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length</span><span class="p">(</span>
+    <span class="n">select_exp</span><span class="p">(</span><span class="n">diffusion_exp</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diffusion&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_21_0.png" src="_images/therunaround_21_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 13;
+                var nbb_unformatted_code = "ax = None\nax = plot_length(\n    select_exp(levy_exp, 0),\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.7,\n    figsize=(8, 3),\n    ax=ax,\n)\nax = plot_length(\n    select_exp(diffusion_exp, 0),\n    label=\"Diffusion\",\n    color=\"brown\",\n    alpha=0.7,\n    ax=ax,\n)";
+                var nbb_formatted_code = "ax = None\nax = plot_length(\n    select_exp(levy_exp, 0),\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.7,\n    figsize=(8, 3),\n    ax=ax,\n)\nax = plot_length(\n    select_exp(diffusion_exp, 0),\n    label=\"Diffusion\",\n    color=\"brown\",\n    alpha=0.7,\n    ax=ax,\n)";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your two answers here, as seperate comments</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="section-2-a-competition-in-exploration">
+<h2>Section 2 - a competition in exploration<a class="headerlink" href="#section-2-a-competition-in-exploration" title="Permalink to this headline">¶</a></h2>
+<p>As a demo for the questions to come, run our two explorerers on the same environment, 100 times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Experiment settings</span>
+<span class="n">num_experiments</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">num_targets</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">detection_radius</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Speed up the search; use TruncatedLevy2d</span>
+<span class="n">min_length</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># Env</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+
+<span class="c1"># Targets</span>
+<span class="n">target_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="n">uniform_targets</span><span class="p">(</span><span class="n">num_targets</span><span class="p">,</span> <span class="n">target_boundary</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">constant_values</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">add_targets</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">detection_radius</span><span class="o">=</span><span class="n">detection_radius</span><span class="p">)</span>
+
+<span class="c1"># Agents</span>
+<span class="n">brown</span> <span class="o">=</span> <span class="n">Diffusion2d</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="n">min_length</span><span class="p">,</span>
+                          <span class="n">scale</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span>
+                          <span class="n">detection_radius</span><span class="o">=</span><span class="n">detection_radius</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">)</span>
+<span class="n">levy2</span> <span class="o">=</span> <span class="n">Levy2d</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="n">min_length</span><span class="p">,</span>
+                              <span class="n">exponent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                              <span class="n">detection_radius</span><span class="o">=</span><span class="n">detection_radius</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="p">)</span>
+
+<span class="c1"># Cleanup </span>
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{base_name}</span><span class="s2">_*.pkl&quot;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># !</span>
+<span class="n">levy_exp</span> <span class="o">=</span> <span class="n">experiment</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{base_name}</span><span class="s2">_levy_2.pkl&quot;</span><span class="p">,</span> 
+    <span class="n">levy2</span><span class="p">,</span>
+    <span class="n">env</span><span class="p">,</span>
+    <span class="n">num_steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">,</span>
+    <span class="n">num_experiments</span><span class="o">=</span><span class="n">num_experiments</span><span class="p">,</span>
+    <span class="n">dump</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">diffusion_exp</span> <span class="o">=</span> <span class="n">experiment</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{base_name}</span><span class="s2">_diffusion_2.pkl&quot;</span><span class="p">,</span> 
+    <span class="n">brown</span><span class="p">,</span>
+    <span class="n">env</span><span class="p">,</span>
+    <span class="n">num_steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">,</span>
+    <span class="n">num_experiments</span><span class="o">=</span><span class="n">num_experiments</span><span class="p">,</span>
+    <span class="n">dump</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lab1_levy_2: 100%|██████████| 2/2 [00:03&lt;00:00,  1.86s/it]
+lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.45s/it]
+</pre></div>
+</div>
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 15;
+                var nbb_unformatted_code = "# Experiment settings\nnum_experiments = 2\nnum_steps = 10000\nnum_targets = 500\nstep_size = 0.1\ndetection_radius = 0.25\n\n# Speed up the search; use TruncatedLevy2d\nmin_length = 0.5\n\n# Env\nenv = Field()\n\n# Targets\ntarget_boundary = (50, 50)\ntargets = uniform_targets(num_targets, target_boundary)\nvalues = constant_values(targets, 1)\nenv.add_targets(targets, values, detection_radius=detection_radius)\n\n# Agents\nbrown = Diffusion2d(min_length=min_length,\n                          scale=.1,\n                          detection_radius=detection_radius, step_size=step_size)\nlevy2 = Levy2d(min_length=min_length,\n                              exponent=2,\n                              detection_radius=detection_radius, step_size=step_size)\n\n# Cleanup \nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n\n# !\nlevy_exp = experiment(\n    f\"{base_name}_levy_2.pkl\", \n    levy2,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)\ndiffusion_exp = experiment(\n    f\"{base_name}_diffusion_2.pkl\", \n    brown,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)";
+                var nbb_formatted_code = "# Experiment settings\nnum_experiments = 2\nnum_steps = 10000\nnum_targets = 500\nstep_size = 0.1\ndetection_radius = 0.25\n\n# Speed up the search; use TruncatedLevy2d\nmin_length = 0.5\n\n# Env\nenv = Field()\n\n# Targets\ntarget_boundary = (50, 50)\ntargets = uniform_targets(num_targets, target_boundary)\nvalues = constant_values(targets, 1)\nenv.add_targets(targets, values, detection_radius=detection_radius)\n\n# Agents\nbrown = Diffusion2d(\n    min_length=min_length,\n    scale=0.1,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\nlevy2 = Levy2d(\n    min_length=min_length,\n    exponent=2,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\n\n# Cleanup\nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n\n# !\nlevy_exp = experiment(\n    f\"{base_name}_levy_2.pkl\",\n    levy2,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)\ndiffusion_exp = experiment(\n    f\"{base_name}_diffusion_2.pkl\",\n    brown,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<p>Plot an experiment, if you want.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_experiment</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Which exp to plot?</span>
+<span class="n">plot_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1"># View size</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_position2d</span><span class="p">(</span>
+    <span class="n">select_exp</span><span class="p">(</span><span class="n">levy_exp</span><span class="p">,</span> <span class="n">num_experiment</span><span class="p">),</span>
+    <span class="n">boundary</span><span class="o">=</span><span class="n">plot_boundary</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_position2d</span><span class="p">(</span>
+    <span class="n">select_exp</span><span class="p">(</span><span class="n">diffusion_exp</span><span class="p">,</span> <span class="n">num_experiment</span><span class="p">),</span>
+    <span class="n">boundary</span><span class="o">=</span><span class="n">plot_boundary</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Brownian&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_targets2d</span><span class="p">(</span>
+    <span class="n">env</span><span class="p">,</span>
+    <span class="n">boundary</span><span class="o">=</span><span class="n">plot_boundary</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Targets&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_26_0.png" src="_images/therunaround_26_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 16;
+                var nbb_unformatted_code = "num_experiment = 1  # Which exp to plot?\nplot_boundary = (50, 50) # View size\n\nax = plot_position2d(\n    select_exp(levy_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.6,\n    figsize=(3, 3),\n)\nax = plot_position2d(\n    select_exp(diffusion_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Brownian\",\n    color=\"brown\",\n    alpha=0.6,\n    ax=ax,\n)\nax = plot_targets2d(\n    env,\n    boundary=plot_boundary,\n    color=\"black\",\n    alpha=1,\n    label=\"Targets\",\n    ax=ax,\n)";
+                var nbb_formatted_code = "num_experiment = 1  # Which exp to plot?\nplot_boundary = (50, 50)  # View size\n\nax = plot_position2d(\n    select_exp(levy_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.6,\n    figsize=(3, 3),\n)\nax = plot_position2d(\n    select_exp(diffusion_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Brownian\",\n    color=\"brown\",\n    alpha=0.6,\n    ax=ax,\n)\nax = plot_targets2d(\n    env,\n    boundary=plot_boundary,\n    color=\"black\",\n    alpha=1,\n    label=\"Targets\",\n    ax=ax,\n)";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length_hist</span><span class="p">(</span>
+    <span class="n">select_exp</span><span class="p">(</span><span class="n">levy_exp</span><span class="p">,</span> <span class="n">num_experiment</span><span class="p">),</span>
+    <span class="n">loglog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plot_length_hist</span><span class="p">(</span>
+    <span class="n">select_exp</span><span class="p">(</span><span class="n">diffusion_exp</span><span class="p">,</span> <span class="n">num_experiment</span><span class="p">),</span>
+    <span class="n">loglog</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;brown&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Diffusion&quot;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span> <span class="c1"># Make pretty plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_27_0.png" src="_images/therunaround_27_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 17;
+                var nbb_unformatted_code = "ax = None\nax = plot_length_hist(\n    select_exp(levy_exp, num_experiment),\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    select_exp(diffusion_exp, num_experiment),\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine() # Make pretty plot";
+                var nbb_formatted_code = "ax = None\nax = plot_length_hist(\n    select_exp(levy_exp, num_experiment),\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    select_exp(diffusion_exp, num_experiment),\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine()  # Make pretty plot";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<p>Get efficiciecy for all experiments</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Results, names, and colors</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">levy_exp</span><span class="p">,</span> <span class="n">diffusion_exp</span><span class="p">]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Levy&quot;</span><span class="p">,</span> <span class="s2">&quot;Diffusion&quot;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">]</span>
+
+<span class="c1"># Score by eff</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">search_efficiency</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 18;
+                var nbb_unformatted_code = "# Results, names, and colors\nresults = [levy_exp, diffusion_exp]\nnames = [\"Levy\", \"Diffusion\"]\ncolors = [\"purple\", \"brown\"]\n\n# Score by eff\nscores = []\nfor name, res, color in zip(names, results, colors):\n    r = search_efficiency(res)\n    scores.append(r)   ";
+                var nbb_formatted_code = "# Results, names, and colors\nresults = [levy_exp, diffusion_exp]\nnames = [\"Levy\", \"Diffusion\"]\ncolors = [\"purple\", \"brown\"]\n\n# Score by eff\nscores = []\nfor name, res, color in zip(names, results, colors):\n    r = search_efficiency(res)\n    scores.append(r)";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<p>Plot distributions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_31_0.png" src="_images/therunaround_31_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 19;
+                var nbb_unformatted_code = "for (name, s, c) in zip(names, scores, colors):\n    plt.hist(s, label=name, color=c, alpha=0.5, bins=20)\n    plt.legend()\n    plt.xlabel(\"Score\")\n    plt.tight_layout()\n    sns.despine()";
+                var nbb_formatted_code = "for (name, s, c) in zip(names, scores, colors):\n    plt.hist(s, label=name, color=c, alpha=0.5, bins=20)\n    plt.legend()\n    plt.xlabel(\"Score\")\n    plt.tight_layout()\n    sns.despine()";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<p>Plot averages</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tabulate</span>
+<span class="n">m</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+    <span class="n">sd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Score&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/therunaround_33_0.png" src="_images/therunaround_33_0.png" />
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 20;
+                var nbb_unformatted_code = "# Tabulate\nm, sd = [], []\nfor (name, s, c) in zip(names, scores, colors):\n    m.append(np.mean(s))\n    sd.append(np.std(s))\n\n# Plot\nfig = plt.figure(figsize=(3, 3))\nplt.bar(names, m, yerr=sd, color=\"black\", alpha=0.6)\nplt.ylabel(\"Score\")\nplt.tight_layout()\nsns.despine()";
+                var nbb_formatted_code = "# Tabulate\nm, sd = [], []\nfor (name, s, c) in zip(names, scores, colors):\n    m.append(np.mean(s))\n    sd.append(np.std(s))\n\n# Plot\nfig = plt.figure(figsize=(3, 3))\nplt.bar(names, m, yerr=sd, color=\"black\", alpha=0.6)\nplt.ylabel(\"Score\")\nplt.tight_layout()\nsns.despine()";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="section" id="question-2-1">
+<h3>Question 2.1<a class="headerlink" href="#question-2-1" title="Permalink to this headline">¶</a></h3>
+<p>Vary the <em>detection radius</em> parameter (what I have been calling <span class="math notranslate nohighlight">\(r_v\)</span>) beginning with 2.0 and ending around 0.25, in 5 or so increments. For each increment, make a histogram of the search efficiencies for both Levy and diffusion search. The code above will help you get started.</p>
+<p>Before you write the code, first write out what you expect to happen as <span class="math notranslate nohighlight">\(r_v\)</span> decreases. Your hypothesis based on what you have been told so far.</p>
+<p>For each increment which method has higher efficiency, and how much do the two distributions seem to overlap?</p>
+<p><em>Warning:</em> This may take a while to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your hypothesis here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+            setTimeout(function() {
+                var nbb_cell_id = 27;
+                var nbb_unformatted_code = "# Write your code here";
+                var nbb_formatted_code = "# Write your code here";
+                var nbb_cells = Jupyter.notebook.get_cells();
+                for (var i = 0; i < nbb_cells.length; ++i) {
+                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
+                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
+                             nbb_cells[i].set_text(nbb_formatted_code);
+                        }
+                        break;
+                    }
+                }
+            }, 500);
+            </script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interpret the results from your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bonus-question">
+<h3>Bonus question:<a class="headerlink" href="#bonus-question" title="Permalink to this headline">¶</a></h3>
+<p>Repeat the first question in the section again, this time varying the <em>num targets</em> instead. Try halving the number. Then doubling it. Are the results very different from when you varied the <em>detection radius</em>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="explorationlib.html" title="previous page">Introduction to <em>explorationlib</em>.</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Erik J Peterson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

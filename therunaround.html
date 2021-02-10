@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 1 - The Runaround - Lab &#8212; Explorations!?</title>
+    <title>The Runaround - Lab &#8212; Explorations!?</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -115,7 +115,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Week 1 - The Runaround - Lab
+   The Runaround - Lab
   </a>
  </li>
 </ul>
@@ -275,8 +275,8 @@
         
               <div>
                 
-  <div class="section" id="week-1-the-runaround-lab">
-<h1>Week 1 - The Runaround - Lab<a class="headerlink" href="#week-1-the-runaround-lab" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="the-runaround-lab">
+<h1>The Runaround - Lab<a class="headerlink" href="#the-runaround-lab" title="Permalink to this headline">¶</a></h1>
 <p>In this assignment we take on random exploration, as a classic battle of brownian versus levy.</p>
 <p>There are two goals. First to introduce these random walks, and to compare their properties. Second to contrast them, in the same search environments.</p>
 <div class="section" id="install-and-import-needed-modules">
@@ -288,38 +288,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/parenthetical-e/explorationlib
-  Cloning https://github.com/parenthetical-e/explorationlib to /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-1te7amk5
-  Running command git clone -q https://github.com/parenthetical-e/explorationlib /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-req-build-1te7amk5
-Building wheels for collected packages: explorationlib
-  Building wheel for explorationlib (setup.py) ... ?25ldone
-?25h  Created wheel for explorationlib: filename=explorationlib-0.0.1-cp36-none-any.whl size=10477 sha256=f52e6513acd461354fdc3618e5a55769ff3769981a3c0caee947f683c544257f
-  Stored in directory: /private/var/folders/nm/lks05xgj3hn20ntpdv1lrdyc0000gn/T/pip-ephem-wheel-cache-vetvt2gg/wheels/f2/63/8a/9bc4a5fc4559289dfa95123fde31363e145e95df0cca3d2886
-Successfully built explorationlib
-Installing collected packages: explorationlib
-  Found existing installation: explorationlib 0.0.1
-    Uninstalling explorationlib-0.0.1:
-      Successfully uninstalled explorationlib-0.0.1
-Successfully installed explorationlib-0.0.1
-</pre></div>
-</div>
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 38;
-                var nbb_unformatted_code = "# Install explorationlib, only if needed\ntry:\n    import fklkf # explorationlib\nexcept:\n    !pip install --upgrade git+https://github.com/parenthetical-e/explorationlib";
-                var nbb_formatted_code = "# Install explorationlib, only if needed\ntry:\n    import fklkf  # explorationlib\nexcept:\n    !pip install --upgrade git+https://github.com/parenthetical-e/explorationlib";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -400,23 +368,6 @@ Successfully installed explorationlib-0.0.1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 3;
-                var nbb_unformatted_code = "# Pretty plots\n%matplotlib inline\n%config InlineBackend.figure_format='retina'\n%config IPCompleter.greedy=True\n\nplt.rcParams[\"axes.facecolor\"] = \"white\"\nplt.rcParams[\"figure.facecolor\"] = \"white\"\nplt.rcParams[\"font.size\"] = \"16\"\n\n# Dev\n# Uncomment for local development\n%load_ext nb_black\n%load_ext autoreload\n%autoreload 2";
-                var nbb_formatted_code = "# Pretty plots\n%matplotlib inline\n%config InlineBackend.figure_format='retina'\n%config IPCompleter.greedy=True\n\nplt.rcParams[\"axes.facecolor\"] = \"white\"\nplt.rcParams[\"figure.facecolor\"] = \"white\"\nplt.rcParams[\"font.size\"] = \"16\"\n\n# Dev\n# Uncomment for local development\n%load_ext nb_black\n%load_ext autoreload\n%autoreload 2";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 </div>
 <div class="section" id="section-1-getting-to-know-our-explorers">
@@ -472,27 +423,6 @@ Successfully installed explorationlib-0.0.1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lab1_levy_1: 100%|██████████| 10/10 [00:06&lt;00:00,  1.58it/s]
-lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1.33it/s]
-</pre></div>
-</div>
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 8;
-                var nbb_unformatted_code = "# Setup\nnum_steps = 10000\nnum_experiments = 10\ndetection_radius = 1\n\nmin_length = 0.1\nstep_size = 0.1  # Should be < (2 * detection_radius)\n\n# Cleanup \nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n    \n# Create env \nenv = Field()\n\n# Create agents\ndiffusion = Diffusion2d(\n    min_length=min_length, \n    scale=0.1, \n    detection_radius=detection_radius, \n    step_size=step_size,\n)\nlevy = Levy2d(min_length=min_length, \n    exponent=2, \n    detection_radius=detection_radius, \n    step_size=step_size,\n)\n\n# !\nlevy_exp = experiment(f\"{base_name}_levy_1.pkl\", \n    levy, \n    env, \n    num_steps=num_steps, \n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)\ndiffusion_exp = experiment(f\"{base_name}_diffusion_1.pkl\", \n    diffusion, \n    env, \n    num_steps=num_steps, \n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)";
-                var nbb_formatted_code = "# Setup\nnum_steps = 10000\nnum_experiments = 10\ndetection_radius = 1\n\nmin_length = 0.1\nstep_size = 0.1  # Should be < (2 * detection_radius)\n\n# Cleanup\nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n\n# Create env\nenv = Field()\n\n# Create agents\ndiffusion = Diffusion2d(\n    min_length=min_length,\n    scale=0.1,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\nlevy = Levy2d(\n    min_length=min_length,\n    exponent=2,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\n\n# !\nlevy_exp = experiment(\n    f\"{base_name}_levy_1.pkl\",\n    levy,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)\ndiffusion_exp = experiment(\n    f\"{base_name}_diffusion_1.pkl\",\n    diffusion,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    seed=59393,\n    dump=False,\n)";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,33 +452,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_7_0.png" src="_images/therunaround_7_0.png" />
-<img alt="_images/therunaround_7_1.png" src="_images/therunaround_7_1.png" />
-<img alt="_images/therunaround_7_2.png" src="_images/therunaround_7_2.png" />
-<img alt="_images/therunaround_7_3.png" src="_images/therunaround_7_3.png" />
-<img alt="_images/therunaround_7_4.png" src="_images/therunaround_7_4.png" />
-<img alt="_images/therunaround_7_5.png" src="_images/therunaround_7_5.png" />
-<img alt="_images/therunaround_7_6.png" src="_images/therunaround_7_6.png" />
-<img alt="_images/therunaround_7_7.png" src="_images/therunaround_7_7.png" />
-<img alt="_images/therunaround_7_8.png" src="_images/therunaround_7_8.png" />
-<img alt="_images/therunaround_7_9.png" src="_images/therunaround_7_9.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 9;
-                var nbb_unformatted_code = "# View size\nplot_boundary = (20, 20)\n\n# Generate 10 plots of walking\nfor n in range(num_experiments):\n    ax = None\n    ax = plot_position2d(\n        select_exp(levy_exp, n),\n        boundary=plot_boundary,\n        label=f\"Levy\",\n        color=\"purple\",\n        alpha=0.6,\n        ax=ax,\n    )\n    ax = plot_position2d(\n        select_exp(diffusion_exp, n),\n        boundary=plot_boundary,\n        label=f\"Diffusion\",\n        title=f\"Experiment {n}\",\n        color=\"brown\",\n        alpha=0.6,\n        ax=ax,\n    )";
-                var nbb_formatted_code = "# View size\nplot_boundary = (20, 20)\n\n# Generate 10 plots of walking\nfor n in range(num_experiments):\n    ax = None\n    ax = plot_position2d(\n        select_exp(levy_exp, n),\n        boundary=plot_boundary,\n        label=f\"Levy\",\n        color=\"purple\",\n        alpha=0.6,\n        ax=ax,\n    )\n    ax = plot_position2d(\n        select_exp(diffusion_exp, n),\n        boundary=plot_boundary,\n        label=f\"Diffusion\",\n        title=f\"Experiment {n}\",\n        color=\"brown\",\n        alpha=0.6,\n        ax=ax,\n    )";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="section" id="question-1-1">
 <h3>Question 1.1<a class="headerlink" href="#question-1-1" title="Permalink to this headline">¶</a></h3>
@@ -560,23 +463,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 10;
-                var nbb_unformatted_code = "# Write your answer here, as a comment";
-                var nbb_formatted_code = "# Write your answer here, as a comment";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <p>Create one distribution for all Levy walks, and one distribution and plot them together. First plot the distributions, the plot them in log-log space. AKA the space in which power laws, like the Levy <span class="math notranslate nohighlight">\(p(l) = 1 / l^{\mu}\)</span>, are easiest to identify.</p>
 <div class="cell docutils container">
@@ -607,24 +493,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_11_0.png" src="_images/therunaround_11_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 11;
-                var nbb_unformatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=False,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6,4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=False,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine() # Make pretty plot";
-                var nbb_formatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=False,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=False,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine()  # Make pretty plot";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <ul class="simple">
 <li><p>Wow, the power law is steep right!? Can you see the exponential nature of diffusion?</p></li>
@@ -657,24 +525,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_13_0.png" src="_images/therunaround_13_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 12;
-                var nbb_unformatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine() # Make pretty plot";
-                var nbb_formatted_code = "ax = None\nax = plot_length_hist(\n    levy_exp,\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    diffusion_exp,\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine()  # Make pretty plot";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 </div>
 <div class="section" id="question-1-2">
@@ -693,23 +543,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 58;
-                var nbb_unformatted_code = "# Write your answer here, as a comment";
-                var nbb_formatted_code = "# Write your answer here, as a comment";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 </div>
 <div class="section" id="question-1-3">
@@ -762,24 +595,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_21_0.png" src="_images/therunaround_21_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 13;
-                var nbb_unformatted_code = "ax = None\nax = plot_length(\n    select_exp(levy_exp, 0),\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.7,\n    figsize=(8, 3),\n    ax=ax,\n)\nax = plot_length(\n    select_exp(diffusion_exp, 0),\n    label=\"Diffusion\",\n    color=\"brown\",\n    alpha=0.7,\n    ax=ax,\n)";
-                var nbb_formatted_code = "ax = None\nax = plot_length(\n    select_exp(levy_exp, 0),\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.7,\n    figsize=(8, 3),\n    ax=ax,\n)\nax = plot_length(\n    select_exp(diffusion_exp, 0),\n    label=\"Diffusion\",\n    color=\"brown\",\n    alpha=0.7,\n    ax=ax,\n)";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -846,27 +661,6 @@ lab1_diffusion_1: 100%|██████████| 10/10 [00:07&lt;00:00,  1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lab1_levy_2: 100%|██████████| 2/2 [00:03&lt;00:00,  1.86s/it]
-lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.45s/it]
-</pre></div>
-</div>
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 15;
-                var nbb_unformatted_code = "# Experiment settings\nnum_experiments = 2\nnum_steps = 10000\nnum_targets = 500\nstep_size = 0.1\ndetection_radius = 0.25\n\n# Speed up the search; use TruncatedLevy2d\nmin_length = 0.5\n\n# Env\nenv = Field()\n\n# Targets\ntarget_boundary = (50, 50)\ntargets = uniform_targets(num_targets, target_boundary)\nvalues = constant_values(targets, 1)\nenv.add_targets(targets, values, detection_radius=detection_radius)\n\n# Agents\nbrown = Diffusion2d(min_length=min_length,\n                          scale=.1,\n                          detection_radius=detection_radius, step_size=step_size)\nlevy2 = Levy2d(min_length=min_length,\n                              exponent=2,\n                              detection_radius=detection_radius, step_size=step_size)\n\n# Cleanup \nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n\n# !\nlevy_exp = experiment(\n    f\"{base_name}_levy_2.pkl\", \n    levy2,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)\ndiffusion_exp = experiment(\n    f\"{base_name}_diffusion_2.pkl\", \n    brown,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)";
-                var nbb_formatted_code = "# Experiment settings\nnum_experiments = 2\nnum_steps = 10000\nnum_targets = 500\nstep_size = 0.1\ndetection_radius = 0.25\n\n# Speed up the search; use TruncatedLevy2d\nmin_length = 0.5\n\n# Env\nenv = Field()\n\n# Targets\ntarget_boundary = (50, 50)\ntargets = uniform_targets(num_targets, target_boundary)\nvalues = constant_values(targets, 1)\nenv.add_targets(targets, values, detection_radius=detection_radius)\n\n# Agents\nbrown = Diffusion2d(\n    min_length=min_length,\n    scale=0.1,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\nlevy2 = Levy2d(\n    min_length=min_length,\n    exponent=2,\n    detection_radius=detection_radius,\n    step_size=step_size,\n)\n\n# Cleanup\nfor path in glob.glob(f\"{base_name}_*.pkl\"):\n    os.remove(path)\n\n# !\nlevy_exp = experiment(\n    f\"{base_name}_levy_2.pkl\",\n    levy2,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)\ndiffusion_exp = experiment(\n    f\"{base_name}_diffusion_2.pkl\",\n    brown,\n    env,\n    num_steps=num_steps,\n    num_experiments=num_experiments,\n    dump=False,\n)";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <p>Plot an experiment, if you want.</p>
 <div class="cell docutils container">
@@ -901,24 +695,6 @@ lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_26_0.png" src="_images/therunaround_26_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 16;
-                var nbb_unformatted_code = "num_experiment = 1  # Which exp to plot?\nplot_boundary = (50, 50) # View size\n\nax = plot_position2d(\n    select_exp(levy_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.6,\n    figsize=(3, 3),\n)\nax = plot_position2d(\n    select_exp(diffusion_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Brownian\",\n    color=\"brown\",\n    alpha=0.6,\n    ax=ax,\n)\nax = plot_targets2d(\n    env,\n    boundary=plot_boundary,\n    color=\"black\",\n    alpha=1,\n    label=\"Targets\",\n    ax=ax,\n)";
-                var nbb_formatted_code = "num_experiment = 1  # Which exp to plot?\nplot_boundary = (50, 50)  # View size\n\nax = plot_position2d(\n    select_exp(levy_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Levy\",\n    color=\"purple\",\n    alpha=0.6,\n    figsize=(3, 3),\n)\nax = plot_position2d(\n    select_exp(diffusion_exp, num_experiment),\n    boundary=plot_boundary,\n    label=\"Brownian\",\n    color=\"brown\",\n    alpha=0.6,\n    ax=ax,\n)\nax = plot_targets2d(\n    env,\n    boundary=plot_boundary,\n    color=\"black\",\n    alpha=1,\n    label=\"Targets\",\n    ax=ax,\n)";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,24 +724,6 @@ lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_27_0.png" src="_images/therunaround_27_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 17;
-                var nbb_unformatted_code = "ax = None\nax = plot_length_hist(\n    select_exp(levy_exp, num_experiment),\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    select_exp(diffusion_exp, num_experiment),\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine() # Make pretty plot";
-                var nbb_formatted_code = "ax = None\nax = plot_length_hist(\n    select_exp(levy_exp, num_experiment),\n    loglog=True,\n    bins=60,\n    density=True,\n    alpha=0.6,\n    label=\"Levy\",\n    color=\"purple\",\n    ax=ax,\n    figsize=(6, 4),\n)\nax = plot_length_hist(\n    select_exp(diffusion_exp, num_experiment),\n    loglog=True,\n    bins=50,\n    density=True,\n    alpha=0.6,\n    color=\"brown\",\n    label=\"Diffusion\",\n    ax=ax,\n)\nsns.despine()  # Make pretty plot";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <p>Get efficiciecy for all experiments</p>
 <div class="cell docutils container">
@@ -983,23 +741,6 @@ lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 18;
-                var nbb_unformatted_code = "# Results, names, and colors\nresults = [levy_exp, diffusion_exp]\nnames = [\"Levy\", \"Diffusion\"]\ncolors = [\"purple\", \"brown\"]\n\n# Score by eff\nscores = []\nfor name, res, color in zip(names, results, colors):\n    r = search_efficiency(res)\n    scores.append(r)   ";
-                var nbb_formatted_code = "# Results, names, and colors\nresults = [levy_exp, diffusion_exp]\nnames = [\"Levy\", \"Diffusion\"]\ncolors = [\"purple\", \"brown\"]\n\n# Score by eff\nscores = []\nfor name, res, color in zip(names, results, colors):\n    r = search_efficiency(res)\n    scores.append(r)";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <p>Plot distributions</p>
 <div class="cell docutils container">
@@ -1013,24 +754,6 @@ lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_31_0.png" src="_images/therunaround_31_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 19;
-                var nbb_unformatted_code = "for (name, s, c) in zip(names, scores, colors):\n    plt.hist(s, label=name, color=c, alpha=0.5, bins=20)\n    plt.legend()\n    plt.xlabel(\"Score\")\n    plt.tight_layout()\n    sns.despine()";
-                var nbb_formatted_code = "for (name, s, c) in zip(names, scores, colors):\n    plt.hist(s, label=name, color=c, alpha=0.5, bins=20)\n    plt.legend()\n    plt.xlabel(\"Score\")\n    plt.tight_layout()\n    sns.despine()";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <p>Plot averages</p>
 <div class="cell docutils container">
@@ -1050,24 +773,6 @@ lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/therunaround_33_0.png" src="_images/therunaround_33_0.png" />
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 20;
-                var nbb_unformatted_code = "# Tabulate\nm, sd = [], []\nfor (name, s, c) in zip(names, scores, colors):\n    m.append(np.mean(s))\n    sd.append(np.std(s))\n\n# Plot\nfig = plt.figure(figsize=(3, 3))\nplt.bar(names, m, yerr=sd, color=\"black\", alpha=0.6)\nplt.ylabel(\"Score\")\nplt.tight_layout()\nsns.despine()";
-                var nbb_formatted_code = "# Tabulate\nm, sd = [], []\nfor (name, s, c) in zip(names, scores, colors):\n    m.append(np.mean(s))\n    sd.append(np.std(s))\n\n# Plot\nfig = plt.figure(figsize=(3, 3))\nplt.bar(names, m, yerr=sd, color=\"black\", alpha=0.6)\nplt.ylabel(\"Score\")\nplt.tight_layout()\nsns.despine()";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="section" id="question-2-1">
 <h3>Question 2.1<a class="headerlink" href="#question-2-1" title="Permalink to this headline">¶</a></h3>
@@ -1088,23 +793,6 @@ lab1_diffusion_2: 100%|██████████| 2/2 [00:06&lt;00:00,  3.4
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-            setTimeout(function() {
-                var nbb_cell_id = 27;
-                var nbb_unformatted_code = "# Write your code here";
-                var nbb_formatted_code = "# Write your code here";
-                var nbb_cells = Jupyter.notebook.get_cells();
-                for (var i = 0; i < nbb_cells.length; ++i) {
-                    if (nbb_cells[i].input_prompt_number == nbb_cell_id) {
-                        if (nbb_cells[i].get_text() == nbb_unformatted_code) {
-                             nbb_cells[i].set_text(nbb_formatted_code);
-                        }
-                        break;
-                    }
-                }
-            }, 500);
-            </script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

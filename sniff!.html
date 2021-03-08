@@ -309,7 +309,7 @@
 <h2>Install and import needed modules<a class="headerlink" href="#install-and-import-needed-modules" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install explorationlib?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Install explorationlib?</span>
 <span class="o">!</span>pip install --upgrade git+https://github.com/parenthetical-e/explorationlib
 <span class="o">!</span>pip install --upgrade git+https://github.com/MattChanTK/gym-maze.git
 </pre></div>
@@ -419,7 +419,7 @@
 <span class="n">min_length</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">max_length</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="n">env</span> <span class="o">=</span> <span class="n">ScentGrid</span><span class="p">()</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">ScentGrid</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
 <span class="n">boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">target</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">coord</span><span class="p">,</span> <span class="n">scent</span> <span class="o">=</span> <span class="n">create_grid_scent</span><span class="p">(</span><span class="n">boundary</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">scent_sigma</span><span class="p">)</span>

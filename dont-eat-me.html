@@ -1310,16 +1310,20 @@
 <p><em>Note 2:</em> If you max out fitness, then you win a prize (TBD)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Explain your hypothesis/guess here. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---------------------------------------------------------------------------------</span>
+<span class="c1"># Explain your hypothesis/guess here....</span>
 
-<span class="c1"># Spend here ONLY</span>
+
+<span class="c1"># ---------------------------------------------------------------------------------</span>
+<span class="c1"># Spend here ONLY (count the points carefully)</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">detection_radius</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">step_size</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">num_predators</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1"># -----------------------------------------------------------------</span>
+<span class="c1"># ---------------------------------------------------------------------------------</span>
 <span class="c1"># Run</span>
+<span class="n">min_length</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">preys</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># Fast</span>
     <span class="n">DiffusionGrid</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="n">min_length</span><span class="p">,</span> <span class="n">step_size</span><span class="o">=</span><span class="n">step_size</span><span class="o">*</span><span class="mi">2</span><span class="p">),</span>
@@ -1340,7 +1344,7 @@
 
 <span class="c1"># Shared env params</span>
 <span class="n">num_steps</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">num_experiments</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">num_experiments</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">seed_value</span> <span class="o">=</span> <span class="mi">559</span>
 
 <span class="n">num_targets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">preys</span><span class="p">)</span>
@@ -1348,9 +1352,7 @@
 <span class="n">num_agents</span> <span class="o">=</span> <span class="n">num_predators</span> <span class="o">+</span> <span class="n">num_targets</span>
 
 <span class="n">p_target</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">target_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">min_length</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">target_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 
 <span class="c1"># Create env </span>
 <span class="n">prng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed_value</span><span class="p">)</span>
@@ -1396,13 +1398,9 @@
 <span class="p">)</span>
 
 <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comp_exp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Est. death</span>
+
+<span class="c1"># ---------------------------------------------------------------------------------</span>
+<span class="c1"># Est. death</span>
 <span class="n">pred_scores</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">prey_scores</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">model_codes</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
@@ -1412,20 +1410,17 @@
 <span class="c1"># Est. fitness</span>
 <span class="n">fitness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">prey_scores</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pred_scores</span><span class="p">)</span>
 <span class="n">fitness</span> <span class="o">=</span> <span class="n">fitness</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">model_codes</span><span class="p">],</span> <span class="n">fitness</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Fitness&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Model code&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="n">num_experiments</span><span class="p">,</span> <span class="n">num_experiments</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The fitness was </span><span class="si">{fitness}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Report</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The fitness was </span><span class="si">{fitness}</span><span class="s2"> (max score is {num_experiments*num_targets})&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

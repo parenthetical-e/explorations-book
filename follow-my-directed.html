@@ -396,29 +396,33 @@
                 
   <div class="section" id="the-follow-the-directed-lab">
 <h1>The Follow the Directed - Lab<a class="headerlink" href="#the-follow-the-directed-lab" title="Permalink to this headline">¶</a></h1>
-<p>In this assignment we see what follows when one follows directions, in exploration. We see what happens when exploration is not totally random, but is directed by an information bonus of some kind. The two kinds are the, no surprise, the UCB, and a new idea for us, novetly. We will be comparing to a softmax explorer, with the aid bonus, and the bounded sequential (pure) explorer.</p>
+<p>In this assignment we see what follows when one follows directions, in exploration. We see what happens when exploration is not totally random, but is directed by an information bonus of some kind. The two kinds are–no surprise–the UCB, and a new idea for us, novelty. They will be compared using a softmax Actor. Later on we will re-introduce the bounded sequential (pure) explorer from <em>Be Best</em>.</p>
 <p>Recall one of the readings this week:</p>
-<p>Ng’s point, or reallt the impact of his work on us, even if he never made the point directly, is that common bonuses used in directed exploration schemes for humans and agents can introduce a statistical biass to the ability to accuratly measure the value of actions?</p>
-<p>AKA Does inductive bias imply statistical bias? Here, anyway. (<em>Note</em>: This is not true in general, or for all systems. It <em>is</em> sometimes true, and it is very important to know when.)</p>
+<blockquote>
+<div><p>Ng, A., Harada, D. &amp; Russell, S. Policy invariance under reward transformations: Theory and application to reward shaping. In Proceedings of the Sixteenth International Conference on Machine Learning 278–287 (1999).</p>
+</div></blockquote>
+<p>Ng’s point, or really the impact of his work on us, even if he never made the point directly, is that common bonuses used in directed exploration schemes, for humans and agents, can introduce a statistical bias to our ability to accurately measure the value of actions.</p>
+<p>AKA Does inductive bias imply statistical bias? Here, anyway.</p>
+<p>(<em>Note</em>: This is not true in general, or for all systems. It <em>is</em> sometimes true, and it is very important to know when.)</p>
 <p>The reward value <span class="math notranslate nohighlight">\(Q\)</span> update rule for all agents (below):</p>
 <div class="math notranslate nohighlight">
 \[ Q \leftarrow Q + \alpha * (\hat R - Q) \]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat R = R + \lambda I\)</span> and <span class="math notranslate nohighlight">\(I\)</span> is a standin for the information bonus. The equation for UCB follows. In it <span class="math notranslate nohighlight">\(t\)</span> is the number of steps in an episode, and <span class="math notranslate nohighlight">\(N_a\)</span> is the number of times that action has been taken.</p>
 <div class="math notranslate nohighlight">
 \[\sqrt{log(t)/ N_a)}\]</div>
-<p>If an action hasn’t been tried very often, or not at all, the <span class="math notranslate nohighlight">\(N_a\)</span> will be small and the uncertienty which UCB reflects will be large, or relatvily large anyway. The larger the UCB is, when it is treated as an intrinsic reward, the morer likely that action will be accepts.</p>
-<p>There is not real reason to write an equation for the novely bonus. It works like this. If this is the rirt time taking that action, add a <span class="math notranslate nohighlight">\(\lambda\)</span> to the rerward <span class="math notranslate nohighlight">\(R\)</span>, in the update rule above. Otherwise, do noting. THis one time bonus littera vale everywhere, making it livkely all the actions will explored, at least a little.</p>
-<p>(<em>Pssssst</em> - there is good evidence that such novely signals exist in bothhuman, monkey, and mouse brains).</p>
-<p>The action policy, aka the <em>Actor</em>, will use the softmax sampling policy, whose frree parameter <span class="math notranslate nohighlight">\(\beta\)</span> controls how soft the softmax is. Larger values make it harder. Aka, morre like a pure max.</p>
+<p>If an action hasn’t been tried very often, or not at all, the <span class="math notranslate nohighlight">\(N_a\)</span> will be small and the uncertainty which UCB reflects will be large, or relatively large anyway. The larger the UCB is, when it is treated as an intrinsic reward, the more likely that action will be accepted.</p>
+<p>There is not real reason to write an equation for the novelty bonus. It works like this. If this is the right time taking that action, add a <span class="math notranslate nohighlight">\(\lambda\)</span> to the reward <span class="math notranslate nohighlight">\(R\)</span>, in the update rule above. Otherwise, do nothing. THis one time bonus littera vale everywhere, making it likely all the actions will be explored, at least a little.</p>
+<p>(<em>Pssssst</em> - there is good evidence that such novelty signals exist in both human, monkey, and mouse brains).</p>
+<p>The action policy, aka the <em>Actor</em>, will use the softmax sampling policy, whose free parameter <span class="math notranslate nohighlight">\(\beta\)</span> controls how soft the softmax is. Larger values make it harder. Aka, morre like a pure max.</p>
 <p>The questions to answer this week are:</p>
 <ol class="simple">
-<li><p>Does good bias cause bad bias in two common directed schemes? If so, how much?</p></li>
-<li><p>Does this bad bias even matter? Or really, can it matter in simple example that looks common enough in the real world?</p></li>
+<li><p>Does “good” (inductive) bias cause bad (statistical) bias in two directed schemes? If so, how much?</p></li>
+<li><p>Does this bad bias even matter? Or really, can it matter in simple examples that look common enough in the real world?</p></li>
 </ol>
 <p>The setting is a four-bandit. Our last time with these robbers.[**] The lab has two sections.</p>
 <p><em>First</em> we get to know our new agents, comparing rewards to value error. Doing some tuning.</p>
-<p><em>Second</em> we tet how much this matters by testing how well out agents recover then the best choice “runs out” of rewards, then changes to becomes the worst choice.</p>
-<p>In this lab we use two metrics. The familiar <em>total reward</em>, and a new error (RMSE) that measures the difference between the true expected value of each action, to the values that were learned by each agent.</p>
+<p><em>Second</em> we test how much this matters by testing how well our agents recover when the best choice “runs out” of rewards and changes to become the worst choice.</p>
+<p>In this lab we use two metrics. The familiar <em>total reward</em>, and a new error (RMSE) that measures the difference between the true expected value of each action, to the values that were learned by each agent. Entropy will show up too.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install explorationlib?</span>
@@ -487,8 +491,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/follow-my-directed_4_0.svg" src="_images/follow-my-directed_4_0.svg" /></div>
 </div>
 <p>Let’s plot example behavoir for three experiments, at some different levels of <span class="math notranslate nohighlight">\(\beta\)</span> (Don’t stray from these, at least in the questions; play all you want of course).</p>
 <div class="cell docutils container">
@@ -518,16 +520,8 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>demo_2: 100%|██████████| 3/3 [00:00&lt;00:00, 10.13it/s]
-demo_4: 100%|██████████| 3/3 [00:00&lt;00:00, 15.81it/s]
-demo_6: 100%|██████████| 3/3 [00:00&lt;00:00, 17.39it/s]
-demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
-</pre></div>
 </div>
-</div>
-</div>
-<p>Visualize the effect of beta, one experiment per cell (three cell). Look over them all, please.</p>
+<p>Visualize the effect of beta, one experiment per cell (three cells). Look over them all, please.</p>
 <div class="section" id="experiment-0">
 <h4>Experiment 0<a class="headerlink" href="#experiment-0" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
@@ -545,8 +539,6 @@ demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/follow-my-directed_8_0.svg" src="_images/follow-my-directed_8_0.svg" /><img alt="_images/follow-my-directed_8_1.svg" src="_images/follow-my-directed_8_1.svg" /><img alt="_images/follow-my-directed_8_2.svg" src="_images/follow-my-directed_8_2.svg" /><img alt="_images/follow-my-directed_8_3.svg" src="_images/follow-my-directed_8_3.svg" /></div>
 </div>
 </div>
 <div class="section" id="experiment-1">
@@ -566,8 +558,6 @@ demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/follow-my-directed_10_0.svg" src="_images/follow-my-directed_10_0.svg" /><img alt="_images/follow-my-directed_10_1.svg" src="_images/follow-my-directed_10_1.svg" /><img alt="_images/follow-my-directed_10_2.svg" src="_images/follow-my-directed_10_2.svg" /><img alt="_images/follow-my-directed_10_3.svg" src="_images/follow-my-directed_10_3.svg" /></div>
 </div>
 </div>
 <div class="section" id="experiment-2">
@@ -587,15 +577,13 @@ demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/follow-my-directed_12_0.svg" src="_images/follow-my-directed_12_0.svg" /><img alt="_images/follow-my-directed_12_1.svg" src="_images/follow-my-directed_12_1.svg" /><img alt="_images/follow-my-directed_12_2.svg" src="_images/follow-my-directed_12_2.svg" /><img alt="_images/follow-my-directed_12_3.svg" src="_images/follow-my-directed_12_3.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-1">
 <h4>Question 1.1<a class="headerlink" href="#question-1-1" title="Permalink to this headline">¶</a></h4>
 <p>In the paper below, the authors offered evidence that people tune their use of information bonuses, and their level of noise, depending on the task, the information available, and the horizon for exploration they have to work with. So…</p>
-<p>To prove the point, let’s do the opposite. Running no more simulaations, and knowing nothing about how much reward the above returned, make a best guess for the <span class="math notranslate nohighlight">\(\beta\)</span> value you believe can be a fair and robust choice for the entire lab to come. Keep in mind the brief desscription I gave you of Section 2, and the exploration bonuses will be in play soon.</p>
-<p><em>Hint</em>: Arm 2 is the most valauble choice. It is the “best” arm.</p>
+<p>To prove the point, let’s do the opposite. Running no more simulations, and knowing nothing about how much reward the above returned, make a best guess for the <span class="math notranslate nohighlight">\(\beta\)</span> value you believe can be a fair and robust choice for the entire lab to come. Keep in mind the brief description I gave you of Section 2, and the exploration bonuses will be in play soon.</p>
+<p><em>Hint</em>: Arm 2 is the most valuable choice. It is the “best” arm.</p>
 <p><em>Warning</em>: Don’t cheat. Make a guess. Explain why. And you’ll do fine grading wise</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -606,7 +594,7 @@ demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="c1"># change me? (My choice of 1.0 is not a hint. I picked it at random.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1"># change me? (My choice of 2.0 is not a hint. I picked it at random.</span>
 </pre></div>
 </div>
 </div>
@@ -627,7 +615,7 @@ demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
 <div class="section" id="question-1-3">
 <h4>Question 1.3<a class="headerlink" href="#question-1-3" title="Permalink to this headline">¶</a></h4>
 <p>Make a guess, will <em>CriticUCB</em> or <em>CriticNovelty</em> do better?</p>
-<p>Hint: <em>CriticUCB</em> provides a running bonus of how uncertian we may be about each arm. <em>CriticNovelty</em> is a one-off bonus at the start. Before answering, consider how much of a hint an agent may need on this task, and how much noise you are using (how small your beta is)?</p>
+<p>Hint: <em>CriticUCB</em> provides a running bonus of how uncertain we may be about each arm. <em>CriticNovelty</em> is a one-off bonus at the start. Before answering, consider how much of a hint an agent may need on this task, and how much noise you are using (how small your beta is)?</p>
 <p>Consider the factors in the hint in explaining your answer?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,13 +671,6 @@ demo_8: 100%|██████████| 3/3 [00:00&lt;00:00, 16.38it/s]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>softmax: 100%|██████████| 100/100 [00:04&lt;00:00, 20.12it/s]
-softmax-ucb: 100%|██████████| 100/100 [00:05&lt;00:00, 17.92it/s]
-softmax-nov: 100%|██████████| 100/100 [00:05&lt;00:00, 17.58it/s]
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="example-behave">
@@ -709,8 +690,6 @@ softmax-nov: 100%|██████████| 100/100 [00:05&lt;00:00, 17.58
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/follow-my-directed_23_0.svg" src="_images/follow-my-directed_23_0.svg" /><img alt="_images/follow-my-directed_23_1.svg" src="_images/follow-my-directed_23_1.svg" /><img alt="_images/follow-my-directed_23_2.svg" src="_images/follow-my-directed_23_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="value">
@@ -747,13 +726,6 @@ softmax-nov: 100%|██████████| 100/100 [00:05&lt;00:00, 17.58
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 4983.79it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 11461.41it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 11515.54it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_25_1.svg" src="_images/follow-my-directed_25_1.svg" /><img alt="_images/follow-my-directed_25_2.svg" src="_images/follow-my-directed_25_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-4">
@@ -800,18 +772,11 @@ total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 1151
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 2776.86it/s]
-action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 3306.56it/s]
-action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 2430.24it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_29_1.svg" src="_images/follow-my-directed_29_1.svg" /><img alt="_images/follow-my-directed_29_2.svg" src="_images/follow-my-directed_29_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-5">
 <h4>Question 1.5<a class="headerlink" href="#question-1-5" title="Permalink to this headline">¶</a></h4>
-<p>Given we are holding noise (<span class="math notranslate nohighlight">\(\beta\)</span>) constant, is it fair or unfair to consider entropy here to be a direct measure the “directedness” of the exploration?</p>
+<p>Given we are holding noise (<span class="math notranslate nohighlight">\(\beta\)</span>) constant, is it fair or unfair to consider entropy here to be a direct measure of the “directedness” of the exploration?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here as comment. Explain yourself.</span>
@@ -819,7 +784,7 @@ action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 24
 </div>
 </div>
 </div>
-<p>Let’s increase the purity of our experiments. Let’s add in the <em>BoundedSequentialActor</em> with a normal <em>Critic</em>. I’ll pick a ambitious <em>bound</em> for us. No need to tune it. Assume I did a good and fair job in my choise</p>
+<p>Let’s increase the purity of our experiments. Let’s add in the <em>BoundedSequentialActor</em> with a normal <em>Critic</em>. I’ll pick an ambitious <em>bound</em> for us. No need to tune it. Assume I did a good and fair job in my choice</p>
 </div>
 <div class="section" id="question-1-6">
 <h4>Question 1.6<a class="headerlink" href="#question-1-6" title="Permalink to this headline">¶</a></h4>
@@ -881,14 +846,6 @@ action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 24
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>softmax: 100%|██████████| 100/100 [00:04&lt;00:00, 22.66it/s]
-softmax-ucb: 100%|██████████| 100/100 [00:04&lt;00:00, 24.53it/s]
-softmax-nov: 100%|██████████| 100/100 [00:04&lt;00:00, 22.99it/s]
-b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 78.94it/s]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -922,8 +879,6 @@ b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 78.9
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/follow-my-directed_36_0.svg" src="_images/follow-my-directed_36_0.svg" /><img alt="_images/follow-my-directed_36_1.svg" src="_images/follow-my-directed_36_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-7">
@@ -970,22 +925,15 @@ b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 78.9
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 3333.55it/s]
-action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 5814.28it/s]
-action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 4867.36it/s]
-action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 4275.71it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_40_1.svg" src="_images/follow-my-directed_40_1.svg" /><img alt="_images/follow-my-directed_40_2.svg" src="_images/follow-my-directed_40_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-8">
 <h4>Question 1.8<a class="headerlink" href="#question-1-8" title="Permalink to this headline">¶</a></h4>
-<p>Were you right? If not, please try and explain why. Also, was the entropy of the <em>BoundedSequentialActor</em> more or less than you expected? Do you understand why?</p>
+<p>Were you right? If not, please try and explain why.</p>
+<p>Also, was the entropy of the <em>BoundedSequentialActor</em> more or less than you expected? Do you understand why?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here as comment. Explain yourself.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your two answers here as comment. Explain yourself.</span>
 </pre></div>
 </div>
 </div>
@@ -1006,7 +954,7 @@ action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 42
 </div>
 <div class="section" id="question-1-10">
 <h4>Question 1.10<a class="headerlink" href="#question-1-10" title="Permalink to this headline">¶</a></h4>
-<p>Beyond a simple ranking, how do think the difference in error between the ideal answer and observed answer will relate to the differences in total reward, which often are not that large in these kinds of simple bandit experiments.</p>
+<p>Beyond a simple ranking, how do you think the differences in error will scale evenly with the difference in total reward, which often are not that large in these kinds of simple bandit experiments.</p>
 <p>Will the change in error be about linear with total reward, or a lot more, or a lot less?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1049,19 +997,11 @@ action_entropy: 100%|██████████| 100/100 [00:00&lt;00:00, 42
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 11704.16it/s]
-bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 14518.19it/s]
-bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 19439.67it/s]
-bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 18650.47it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_48_1.svg" src="_images/follow-my-directed_48_1.svg" /><img alt="_images/follow-my-directed_48_2.svg" src="_images/follow-my-directed_48_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-11">
 <h4>Question 1.11<a class="headerlink" href="#question-1-11" title="Permalink to this headline">¶</a></h4>
-<p>Does your answer to Q1.10 look about right? If your guess was off, please try an explain why.</p>
+<p>Does your answer to Q1.10 look about right? If your guess was off, please try and explain why.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here as comment. Explain yourself.</span>
@@ -1069,11 +1009,11 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 18650
 </div>
 </div>
 </div>
-<p>Let’s make one big change! Let’s change the horison from 240 steps, to 60, and see how thaat change total rewaard, and error.</p>
+<p>Let’s make one big change! Let’s change the horizon from 240 steps, to 60, and see how that changes total reward, and error.</p>
 </div>
 <div class="section" id="question-1-12">
 <h4>Question 1.12<a class="headerlink" href="#question-1-12" title="Permalink to this headline">¶</a></h4>
-<p>Do you think a change to horizon will effect the ranking of the models? Why or why not?</p>
+<p>Do you think a change to horizon will affect the ranking of the models? Why or why not?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here as comment. Explain yourself.</span>
@@ -1131,14 +1071,6 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 18650
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>softmax: 100%|██████████| 100/100 [00:02&lt;00:00, 48.24it/s]
-softmax-ucb: 100%|██████████| 100/100 [00:01&lt;00:00, 54.35it/s]
-softmax-nov: 100%|██████████| 100/100 [00:02&lt;00:00, 42.24it/s]
-b-sequential: 100%|██████████| 100/100 [00:00&lt;00:00, 127.58it/s]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1172,14 +1104,6 @@ b-sequential: 100%|██████████| 100/100 [00:00&lt;00:00, 127.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 10579.65it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 34660.80it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 30524.01it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 22696.45it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_54_1.svg" src="_images/follow-my-directed_54_1.svg" /><img alt="_images/follow-my-directed_54_2.svg" src="_images/follow-my-directed_54_2.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1214,14 +1138,6 @@ total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 2269
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15400.98it/s]
-bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 13365.74it/s]
-bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15755.03it/s]
-bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15135.33it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_55_1.svg" src="_images/follow-my-directed_55_1.svg" /><img alt="_images/follow-my-directed_55_2.svg" src="_images/follow-my-directed_55_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="question-1-14">
@@ -1245,7 +1161,7 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15135
 <div class="section" id="question-2-1">
 <h4>Question 2.1<a class="headerlink" href="#question-2-1" title="Permalink to this headline">¶</a></h4>
 <p>Keeping in mind the change to come, which agent will do the best overall?</p>
-<p>To answer first imagine we run 80 steps in total, 20 steps past the change. The imagine we run 120 steps in total. The in the third part of your answer imagine we run 240 steps (this is the amount we have been using so far. It is 180 steps past the change point, when the best reward runs out).</p>
+<p>To answer first imagine we run 80 steps in total, 20 steps past the change. Then imagine we run 120 steps in total. In the third part of your answer imagine we run 240 steps (this is the amount we have been using so far. It is 180 steps past the change point, when the best reward runs out).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here as comment. Explain yourself.</span>
@@ -1268,11 +1184,6 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15135
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[60]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1280,11 +1191,6 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15135
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8e005b57b8&gt;
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_62_1.svg" src="_images/follow-my-directed_62_1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1292,11 +1198,6 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15135
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f8dfea7cb00&gt;
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_63_1.svg" src="_images/follow-my-directed_63_1.svg" /></div>
 </div>
 </div>
 <div class="section" id="steps">
@@ -1351,14 +1252,6 @@ bandit_rmse: 100%|██████████| 100/100 [00:00&lt;00:00, 15135
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>softmax: 100%|██████████| 100/100 [00:02&lt;00:00, 40.35it/s]
-softmax-ucb: 100%|██████████| 100/100 [00:03&lt;00:00, 26.25it/s]
-softmax-nov: 100%|██████████| 100/100 [00:02&lt;00:00, 35.34it/s]
-b-sequential: 100%|██████████| 100/100 [00:00&lt;00:00, 153.85it/s]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,14 +1285,6 @@ b-sequential: 100%|██████████| 100/100 [00:00&lt;00:00, 153.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 11756.32it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 21441.08it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 35690.13it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 39509.27it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_66_1.svg" src="_images/follow-my-directed_66_1.svg" /><img alt="_images/follow-my-directed_66_2.svg" src="_images/follow-my-directed_66_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="id1">
@@ -1454,14 +1339,6 @@ total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 3950
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>softmax: 100%|██████████| 100/100 [00:04&lt;00:00, 21.16it/s]
-softmax-ucb: 100%|██████████| 100/100 [00:03&lt;00:00, 25.53it/s]
-softmax-nov: 100%|██████████| 100/100 [00:04&lt;00:00, 22.61it/s]
-b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 83.88it/s]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1495,14 +1372,6 @@ b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 83.8
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 4461.69it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 13096.15it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 12536.03it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 11697.31it/s]
-</pre></div>
-</div>
-<img alt="_images/follow-my-directed_69_1.svg" src="_images/follow-my-directed_69_1.svg" /><img alt="_images/follow-my-directed_69_2.svg" src="_images/follow-my-directed_69_2.svg" /></div>
 </div>
 </div>
 <div class="section" id="id2">
@@ -1557,14 +1426,6 @@ total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 1169
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>softmax: 100%|██████████| 100/100 [00:06&lt;00:00, 16.14it/s]
-softmax-ucb: 100%|██████████| 100/100 [00:05&lt;00:00, 18.34it/s]
-softmax-nov: 100%|██████████| 100/100 [00:05&lt;00:00, 18.33it/s]
-b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 77.27it/s]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1598,21 +1459,13 @@ b-sequential: 100%|██████████| 100/100 [00:01&lt;00:00, 77.2
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 17070.83it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 16417.99it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 9444.50it/s]
-total_reward: 100%|██████████| 100/100 [00:00&lt;00:00, 9292.59it/s]
-</pre></div>
 </div>
-<img alt="_images/follow-my-directed_72_1.svg" src="_images/follow-my-directed_72_1.svg" /><img alt="_images/follow-my-directed_72_2.svg" src="_images/follow-my-directed_72_2.svg" /></div>
-</div>
-<p>This lab has I hope shown you that directed exploration can improve total rewards collected, but at the cost of sometimes large error, and the sometimes this error can limit performance on long horizons when the world changes.</p>
+<p>This lab has shown you directed exploration can improve total rewards collected, but at the cost of sometimes large errors, and thaat sometimes this error can limit performance on long horizons, when the world changes.</p>
 </div>
 <div class="section" id="question-2-2">
 <h4>Question 2.2<a class="headerlink" href="#question-2-2" title="Permalink to this headline">¶</a></h4>
-<p>Imagine in our final question that you, intelligent agent you are, could pick and choose among these four agents to be your strategies but in an adaptive way and as you see fit.</p>
-<p>Please write down for a situation in which each of the agents might be the best choice. These examples could be in bandit task, in a cliff world, or in an open field. Integrate the enviroments, in other words.</p>
+<p>Imagine in our final question that you, intelligent agent you are, could pick and choose among these four agents to be your strategies, but in an adaptive way and as you see fit. Please write down for a situation in which each of the agents might be the best choice.</p>
+<p>These examples could be in bandit tasks, in a cliff worlds, or in open fields. Integrate the environments, in other words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your answer here as comment. Explain yourself.</span>

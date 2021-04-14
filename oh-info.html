@@ -246,47 +246,54 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sections">
-   Sections
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#e-coli-again">
-   E Coli, again?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#our-agents-this-time">
-   Our agents, this time
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#costly-cognition">
-   Costly cognition
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-s-scent-look-like-a-definition-of-chemotaxis">
-   What’s scent look like (a definition of
-   <em>
-    chemotaxis
-   </em>
-   )?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-information-a-definition-of-infotaxis">
-   More information (a definition of
-   <em>
-    infotaxis
-   </em>
-   )?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#our-ted-talk-moment">
-   Our TED talk moment
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sections">
+     Sections
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-coli-again">
+     E Coli, again?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#our-agents-this-time">
+     Our agents, this time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#costly-cognition">
+     Costly cognition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-s-scent-look-like-a-definition-of-chemotaxis">
+     What’s scent look like (a definition of
+     <em>
+      chemotaxis
+     </em>
+     )?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-information-a-definition-of-infotaxis">
+     More information (a definition of
+     <em>
+      infotaxis
+     </em>
+     )?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#our-ted-talk-moment">
+     Our TED talk moment
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#install-and-import-needed-modules">
@@ -460,6 +467,8 @@
                 
   <div class="section" id="the-oh-my-information-lab">
 <h1>The Oh My Information - Lab<a class="headerlink" href="#the-oh-my-information-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In this assignment we take on, and return to, <em>taxic explorations</em>. We revisit the sniff world (aka <em>ScentGrid</em>) now with a new twist. We look at what happens when sense information is not just noisy, but suddenly missing altogether. A concrete case of this is turbulent flows.</p>
 <p>We’ll be working with a crude approximation of such turbulent flows.</p>
 <p>Our environment this tims just deletes scent information from the grid, with a probability <span class="math notranslate nohighlight">\((1- p_{scent})\)</span>. The noisy background is of course unaffected by this deletion.</p>
@@ -471,11 +480,11 @@
 </ul>
 <p>Our target metrics are the number of deaths (<em>num. death</em>) and <em>total reward</em>. Any experimental trial which does not lead to finding at least a single target (aka reward) means the exploring agent dies. It’s a harsh noisy world we live in, after all.</p>
 <div class="section" id="sections">
-<h2>Sections<a class="headerlink" href="#sections" title="Permalink to this headline">¶</a></h2>
+<h3>Sections<a class="headerlink" href="#sections" title="Permalink to this headline">¶</a></h3>
 <p>There are three sections to this Lab. In the first we get to know our new missing scent world. In the second, we explore parameters where info-taxis can dominate. In section the third, chemo- gets a moment to shine, and there are a series of questions about the big picture.</p>
 </div>
 <div class="section" id="e-coli-again">
-<h2>E Coli, again?<a class="headerlink" href="#e-coli-again" title="Permalink to this headline">¶</a></h2>
+<h3>E Coli, again?<a class="headerlink" href="#e-coli-again" title="Permalink to this headline">¶</a></h3>
 <p><em>Background</em>: Recall our basic model of E. Coli exploration is as simple as can be.</p>
 <ul class="simple">
 <li><p>When the gradient is positive, meaning you are going “up” the gradient, the probability of turning is set to <em>p pos</em>.</p></li>
@@ -485,19 +494,19 @@
 </ul>
 </div>
 <div class="section" id="our-agents-this-time">
-<h2>Our agents, this time<a class="headerlink" href="#our-agents-this-time" title="Permalink to this headline">¶</a></h2>
+<h3>Our agents, this time<a class="headerlink" href="#our-agents-this-time" title="Permalink to this headline">¶</a></h3>
 <p>We will study three agents. One who does <em>chemotaxis</em>. One who does a kind of <em>infotaxis</em>. One that does random search (aka Diffusion). For fun, let’s call this one a <em>randotaxis</em> agent. (No one really calls them this.) This last rando-agent is really a control. A reference point.</p>
 <p>In a sense the <em>chemotaxis</em> agent only tries to answer question Q2 (above). While <em>infotaxis</em> only tries to answer Q1. They are extreme strategies, in other words. The bigger question we will ask, in a very limited setting, is which extreme method is better <em>generally</em>?</p>
 <p>We will not address the question of combining them, into a less extreme and perhaps more reliable alternative…</p>
 </div>
 <div class="section" id="costly-cognition">
-<h2>Costly cognition<a class="headerlink" href="#costly-cognition" title="Permalink to this headline">¶</a></h2>
+<h3>Costly cognition<a class="headerlink" href="#costly-cognition" title="Permalink to this headline">¶</a></h3>
 <p>Both <em>chemo-</em> and <em>infotaxis</em> agents will use a DDM-style accumulator to try and make better decisions about the direction of the gradient. These decisions are of course statistical in nature. (We won’t be tuning the accumulator parameters in this lab. Assume the parameters I give you, for the DDM, are “good enough”.)</p>
 <p>For the <em>randotaxis</em> agent number of steps means the number of steps or actions the agent takes.</p>
 <p>As in the <em>Air Quotes Lab</em> we will assume that the steps are in a sense conserved. For the other two (accumulator) agents a step can mean two things. For accumulator agents a step can be spent sampling/weighing noisy scent evidence in the same location, or it can be spent moving to a new location.</p>
 </div>
 <div class="section" id="what-s-scent-look-like-a-definition-of-chemotaxis">
-<h2>What’s scent look like (a definition of <em>chemotaxis</em>)?<a class="headerlink" href="#what-s-scent-look-like-a-definition-of-chemotaxis" title="Permalink to this headline">¶</a></h2>
+<h3>What’s scent look like (a definition of <em>chemotaxis</em>)?<a class="headerlink" href="#what-s-scent-look-like-a-definition-of-chemotaxis" title="Permalink to this headline">¶</a></h3>
 <p>Our <em>chemotaxis</em> agent (<em>AccumulatorGradientGrid</em>) tries to directly estimate the gradient <span class="math notranslate nohighlight">\(\nabla\)</span> in scent by comparing the level of scent at the last grid position it occupied to the current scent level (<span class="math notranslate nohighlight">\(o\)</span>). By last grid position here we mean the last grid position when it moved last.</p>
 <div class="math notranslate nohighlight">
 \[\nabla \approx o_t - o_{t-1}\]</div>
@@ -509,7 +518,7 @@
 </ol>
 </div>
 <div class="section" id="more-information-a-definition-of-infotaxis">
-<h2>More information (a definition of <em>infotaxis</em>)?<a class="headerlink" href="#more-information-a-definition-of-infotaxis" title="Permalink to this headline">¶</a></h2>
+<h3>More information (a definition of <em>infotaxis</em>)?<a class="headerlink" href="#more-information-a-definition-of-infotaxis" title="Permalink to this headline">¶</a></h3>
 <p>Compared to chemo- definition the definition of infotaxis is a little more involved. It has what we can think of as five cognitive or behavioral steps:</p>
 <ol class="simple">
 <li><p>Use an accumulator to (stabely) estimate if there is a scent or not. AKA hits and misses.</p></li>
@@ -521,8 +530,9 @@
 <p><em>Note</em>: Even though the info-accumulator is more complex, it can take advantage of missing scent information to drive its behavior. It can also use positive scent hits, of course, too.</p>
 </div>
 <div class="section" id="our-ted-talk-moment">
-<h2>Our TED talk moment<a class="headerlink" href="#our-ted-talk-moment" title="Permalink to this headline">¶</a></h2>
+<h3>Our TED talk moment<a class="headerlink" href="#our-ted-talk-moment" title="Permalink to this headline">¶</a></h3>
 <p>The big question for the week is this - is it ever better to follow the scent gradient instead of following its information?</p>
+</div>
 </div>
 <div class="section" id="install-and-import-needed-modules">
 <h2>Install and import needed modules<a class="headerlink" href="#install-and-import-needed-modules" title="Permalink to this headline">¶</a></h2>

@@ -30,4 +30,5 @@
   - file: what-dilemma.ipynb
 
   - part: Projects
-  - file: project-template.ipynb
+    chapters:
+    - file: project-template.ipynb

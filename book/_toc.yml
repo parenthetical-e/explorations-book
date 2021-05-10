@@ -28,7 +28,4 @@
   - file: follow-my-directed.ipynb
   - file: oh-info.ipynb
   - file: what-dilemma.ipynb
-
-  - part: Projects
-    chapters:
-    - file: project-template.ipynb
+  - file: project-template.ipynb
